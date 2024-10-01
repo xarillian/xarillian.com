@@ -5,8 +5,44 @@
   --text-color: #a5a5ff;
 }
 
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.title-container {
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.tagline {
+  font-size: 0.5rem;
+  opacity: 0.75;
+  display: inline-block;
+  max-width: 95%;
+  text-align: left;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 body {
-  padding: 1em;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Press Start 2P', cursive;
+  margin: 0;
+}
+
+body {
+  padding: 1rem 1rem 0 1rem;
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: 'Press Start 2P', cursive;
@@ -14,28 +50,45 @@ body {
 }
 
 header {
-  padding: 1rem;
+  padding: 1em 0.5em 0.5em 0.5em;
   background-color: rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+}
+
+nav {
+  display: none;
+  margin-top: 1rem;
+}
+
+nav.active {
+  display: block;
+}
+
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: none;
+}
+
+nav ul.visible {
+  display: block;
+}
+
+
+nav li {
+  margin-bottom: 0.5em;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
   position: relative;
   display: inline-block;
-  margin: 0 0 1rem 0;
-}
-
-.tagline {
-  font-size: 0.5em;
-  opacity: 0.75;
-  display: inline-block;
-  max-width: 100%;
-  text-align: left;
-  line-height: 1.4;
-  margin-top: 1em;
+  margin: 0;
 }
 
 h1 .original,
@@ -83,24 +136,52 @@ h1:hover::after {
 }
 
 @media (min-width: 768px) {
-  body {
-    padding: 2em 4em;
+
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  header {
-    padding: 2rem 4rem;
+  .title-container {
     flex-direction: row;
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 2em;
+    align-items: baseline;
   }
 
   .tagline {
-    font-size: 0.5em;
-    margin-left: 4em;
-    max-width: 50%;
+    font-size: 0.5rem;
+    margin-left: 1rem;
+    max-width: 70%;
+  }
+
+  .hamburger {  /* we'll instead display the menu items */
+    display: none;
+  }
+
+  body {
+    margin: 2rem 32rem 0 32rem;
+  }
+
+  header {
+    padding: 1em 2em 0.5em 2em;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  nav {
+    display: block;
+    margin-top: 0.5em;
+  }
+
+  nav ul {
+    display: flex; 
+    justify-content: flex-start;
+  }
+
+  nav li {
+    margin-right: 1em;
+    margin-bottom: 0;
   }
 }
 

@@ -9,11 +9,24 @@
 </head>
 <body>
   <header>
-    <h1 data-text="xarillian">
-      <span class="original">xarillian</span>
-      <span class="phonetic">/zæˈrɪliən/</span>
-    </h1>
-    <span class="tagline" hx-get="/random-quote" hx-trigger="load">it's not the user's fault</span>
+    <div class="header-content">
+      <div class="title-container">
+        <h1 data-text="xarillian">
+          <span class="original">xarillian</span>
+          <span class="phonetic">/zæˈrɪliən/</span>
+        </h1>
+        <span class="tagline" hx-get="/random-quote" hx-trigger="load">it's not the user's fault</span>
+      </div>
+      <button class="hamburger" 
+        hx-get="/menu" 
+        hx-target="#menu" 
+        hx-swap="innerHTML"
+        hx-trigger="click"
+      >
+        ☰
+      </button>
+    </div>
+    <nav id="menu" hx-get="/menu" hx-trigger="load"></nav>
   </header>
   <main>
     <!-- Your main content will go here -->
