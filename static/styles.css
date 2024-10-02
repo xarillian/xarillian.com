@@ -139,7 +139,9 @@ h1:hover::after {
 
 @media (min-width: 768px) {
   body {
-    margin: 2rem 24rem 0 24rem;
+    margin: 2rem auto 0 auto;
+    max-width: 1200px;
+    padding: 0 1rem;
   }
 
   header {
