@@ -1,1 +1,2 @@
 - Hamburger menu still doesn't open
+- clean up styles
