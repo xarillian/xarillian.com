@@ -1,2 +1,4 @@
 - Hamburger menu still doesn't open
 - clean up styles
+- styling of wiki-container on smaller screens (not mobile)
+- mobile wiki-image styling (should be centered?)
