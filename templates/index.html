@@ -5,29 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>xarillian</title>
   <link rel="stylesheet" href="../static/styles.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/png" href="../static/favicon.png"/>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
 <body>
-  <header class="backsplash">
+  <header>
     <div class="header-content">
       <div class="title-container">
         <h1 data-text="xarillian">
           <span class="original">xarillian</span>
           <span class="phonetic">/zæˈrɪliən/</span>
         </h1>
-        <span class="tagline" hx-get="/random-quote" hx-trigger="load">it's not the user's fault</span>
+        <span class="tagline skip-mobile" hx-get="/random-quote" hx-trigger="load">it's not the user's fault</span>
       </div>
-      <button class="hamburger" 
-        hx-get="/menu" 
-        hx-target="#menu" 
-        hx-swap="innerHTML"
-        hx-trigger="click">☰</button>
     </div>
-    <nav id="menu" hx-get="/menu" hx-trigger="load"></nav>
+    <nav class="links" hx-get="/menu" hx-trigger="load"></nav>
   </header>
-  <br />
   <main>
+    <p class="opening-line">
+      I am <b>Austin Heinrich</b>.
+      I call myself a "techno-optimist."<br/><b>We have saved ourselves with machines.</b>
+    </p>
     <section id="about-me" class="wiki-container">
       <div class="wiki-image-container">
         <img 
@@ -38,24 +37,21 @@
       </div>
       <div class="wiki-content">
         <p>
-          I'm Austin Heinrich.
-          I call myself a "techno-optimist." We have saved ourselves with machines.</p>
+          As a teenager, I used to say "one day I'll learn to code" while <b>I was already building</b> games with
+          ruby-on-rails. I didn't realize I was actually a software developer until I had a degree in my hand. Since 
+          that moment, I've been excited to work on <b>games, user experience, and AI.</b>
+        </p>
         <p>
-          Originally from the edge of the Canadian Shield, I moved at 18 for university to Saskatoon, Canada. I've been
+          I like to swim. I like to tell stories. Swimming is a quick entry into the <b>flow state</b>; nothing is better 
+          than a morning spent <b>in the water</b>. When it gets too cold <b>to sustain biological life</b>, I camp out inside
+          and sit in of my monitor like a firelight.
+        </p>
+        <p>
+          Originally <b>from the edge</b> of the Canadian Shield, I moved at 18 for university to Saskatoon, Canada. I've been
           in the silicon prairie ever since.
         </p>
         <p>
-          As a teenager, I used to say, "one day, I'll learn to code," while I was already building games with
-          ruby-on-rails. I didn't realize I was actually a software developer until I had a degree in my hand. Since 
-          that moment, I've been excited to work on games, user experience, and AI.
-        </p>
-        <p>
-          When I'm not online, I'm at the pool or crafting stories. Swimming is a quick entry into the flow state;
-          nothing is better than a morning spent in the water. Likewise, nothing is better than a night in front of a
-          glowing monitor.
-        </p>
-        <p>
-          I live with my beautiful wife, Erika, and our three cats. They keep me grounded.
+          I live with my beautiful wife, <b>Erika</b>, and our <b>three cats</b>. They keep me grounded.
         </p>
       </div>
     </section>

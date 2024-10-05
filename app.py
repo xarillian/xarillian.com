@@ -4,8 +4,6 @@ from flask import (
   Flask,
   render_template,
   render_template_string,
-  request,
-  session,
 )
 
 from const import QUOTES
@@ -29,24 +27,22 @@ def random_quote():
 
 @app.route('/menu')
 def menu():
-    if request.headers.get('HX-Request') == 'true':
-      session['menu_visible'] = not session.get('menu_visible', False)
-    is_visible = session.get('menu_visible', True)
-
     menu_items = [
-        {'link': 'https://github.com/xarillian', 'display': 'github'},
+        {'link': 'https://github.com/xarillian', 'display': 'github', 'icon': 'fab fa-github' },
+        {'link': 'https://www.linkedin.com/in/austin-heinrich/', 'display': 'linkedin', 'icon': 'fab fa-linkedin'},
     ]
 
     menu_html = render_template_string(
       """
         <ul>
         {% for item in menu_items %}
-            <li><a href="{{ item.link }}" target="_blank">{{ item.display }}</a></li>
+            <a href="{{ item.link }}" target="_blank">
+              <li><p><i class="{{ item.icon }}"></i> {{ item.display }}</p></li>
+            </a>
         {% endfor %}
         </ul>
       """,
       menu_items=menu_items,
-      is_visible=is_visible
     )
 
     return menu_html
