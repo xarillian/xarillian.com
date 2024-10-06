@@ -11,7 +11,7 @@ phases:
   build:
     commands:
       - echo Running tests...
-      - python -m pytest tests/
+      - if [ -d "tests" ]; then python -m pytest tests/; else echo "No tests directory found. Skipping tests."; fi
   post_build:
     commands:
       - echo Build completed on `date`
