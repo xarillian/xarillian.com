@@ -4,9 +4,9 @@ files:
   - source: /
     destination: /home/ubuntu/xarillian.com
 hooks:
-  BeforeInstall:
-    - location: scripts/before_install.sh
-      timeout: 300
+  Install:
+    - location: scripts/install.sh
+      timeout: 900
       runas: ubuntu
   ApplicationStart:
     - location: scripts/start_application.sh

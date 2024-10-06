@@ -1,2 +1,2 @@
 #!/bin/bash
-pkill gunicorn
+pkill gunicorn || true
