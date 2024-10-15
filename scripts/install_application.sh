@@ -20,3 +20,7 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 deactivate
+
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo ln -sf /etc/nginx/sites-available/xarillian.com /etc/nginx/sites-enabled/
+sudo systemctl restart nginx
