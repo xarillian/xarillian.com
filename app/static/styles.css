@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 @import 'animations.css';
 @import 'layout.css';
-@import 'wiki-style-layout.css';
 
 :root {
   --bg-color: #253e69;
@@ -10,6 +9,7 @@
   --bold-color: #d4d4ff;
   --link-color: #8ea6ff;
   --accent-color: #2e5090;
+  --transparency-layer: rgba(0, 0, 0, 0.1);
   --content-width: 780px;
 }
 
@@ -26,16 +26,22 @@ body {
   line-height: 1.5;
 }
 
+header {
+  border-radius: 4px;
+  padding: 1em 1em 1em 1em;
+  background-color: var(--transparency-layer);
+}
+
 @media (min-width: 768px) {
   body {
     margin: 0 auto;
     max-width: var(--content-width);
     padding: 2em;
   }
+}
 
-  header {
-    padding: 1em 1em 0.2em 1em;
-  }
+img {
+  border: 10px solid var(--transparency-layer);
 }
 
 p {
@@ -44,11 +50,6 @@ p {
 
 section {
   margin-bottom: 2em;
-}
-
-header {
-  padding: 1em 1em 1em 1em;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 b {
@@ -64,6 +65,7 @@ h1 {
   position: relative;
   font-size: 2rem;
   margin: 0;
+  padding-top: 0;
 }
 
 h1 .original,
