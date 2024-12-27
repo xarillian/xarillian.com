@@ -57,6 +57,14 @@
   display: none;
 }
 
+.no-link-format a,
+.no-link-format a:hover,
+.no-link-format a:visited,
+.no-link-format a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
   .title-container {
     display: flex;

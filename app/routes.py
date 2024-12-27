@@ -1,6 +1,6 @@
 import random
 
-from flask import Blueprint, render_template, render_template_string
+from flask import Blueprint, redirect, render_template, render_template_string, url_for
 
 from .utils import QUOTES, get_menu_items
 
@@ -10,7 +10,12 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def home():
-    return render_template('index.html')
+    return redirect(url_for('main.about_me'))
+
+
+@main.route('/about')
+def about_me():
+    return render_template('about.html')
 
 
 @main.route('/random-quote')
@@ -20,6 +25,7 @@ def random_quote():
 
 @main.route('/menu')
 def menu():
+    # Currently unused (gross)
     menu_items = get_menu_items()
     menu_html = render_template_string(
         """
