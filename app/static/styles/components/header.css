@@ -1,9 +1,29 @@
+header {
+  border-radius: 4px;
+  padding: 1em 1em 1em 1em;
+  background-color: var(--transparency-layer);
+  position: relative;
+  min-height: 4.5em;
+}
+
+@media (max-width: 769px) {
+  header {
+    padding: 0.5em 1em 1em 1em;
+  }
+}
+
 .header-content {
   display: flex;
   position: relative;
   justify-content: space-between;
   align-items: flex-start;
   font-family: 'Silkscreen', cursive;
+}
+
+@media (max-width: 769px) {
+  .header-content {
+    flex-direction: column;
+  }
 }
 
 .header-title-container {
@@ -18,6 +38,15 @@
   margin-left: 1em;
   gap: 1rem;
   text-transform: uppercase;
+}
+
+@media (max-width: 769px) {
+  .main-nav {
+    position: absolute;
+    left: 1.75em; /* 0.25em + 1.5rem to match tagline position */
+    top: 3em;
+    margin-left: 0;
+  }
 }
 
 .tagline {

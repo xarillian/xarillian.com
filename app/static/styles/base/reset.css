@@ -17,12 +17,6 @@ body {
   }
 }
 
-header {
-  border-radius: 4px;
-  padding: 1em 1em 1em 1em;
-  background-color: var(--transparency-layer);
-}
-
 img {
   border: 10px solid var(--transparency-layer);
 }
