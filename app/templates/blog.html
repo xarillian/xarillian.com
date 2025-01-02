@@ -4,11 +4,11 @@
 <div class="entry-wrapper">
   {% for post in posts %}
     <div class="entry-overview">
-      <div class="date">{{ post.date.strftime('%b %d, %Y') }}</div>
-      <div class="detail">
+      <div class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</div>
+      <div class="blog-detail">
         <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
         {% if post.summary %}
-          <div class="summary">{{ post.summary }}</div>
+          <div class="blog-summary">{{ post.summary }}</div>
         {% endif %}
       </div>
     </div>

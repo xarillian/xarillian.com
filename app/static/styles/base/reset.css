@@ -1,0 +1,33 @@
+/* Base Styles */
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Inter';
+  margin: 0;
+  padding: 1em 1em 0 1em;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 0 auto;
+    max-width: var(--content-width);
+    padding: 2em;
+  }
+}
+
+header {
+  border-radius: 4px;
+  padding: 1em 1em 1em 1em;
+  background-color: var(--transparency-layer);
+}
+
+img {
+  border: 10px solid var(--transparency-layer);
+}
+
+section {
+  margin-bottom: 2em;
+}
+

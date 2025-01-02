@@ -1,7 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
-@import 'components/about.css';
-@import 'components/blog.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
 @import 'components/header.css';
 
+@import 'components/about.css';
+@import 'components/blog.css';
+@import 'animations.css';
+
+:root {
+  /* Color */
+  --bg-color: #253e69;
+  --text-color: #e0e0ff;
+  --bold-color: #d4d4ff;
+  --link-color: #8ea6ff;
+  --accent-color: #2e5090;
+  --transparency-layer: rgba(0, 0, 0, 0.1);
+  /* Widths */
+  --content-width: 780px;
+  /* 
+   * --breakpoint-desktop: 1025px
+   * --breakpoint-tablet: 769px
+   */
+}
+
+/* Utilities */
+.no-link-formatting a,
+.no-link-formatting a:hover,
+.no-link-formatting a:visited,
+.no-link-formatting a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.skip-mobile {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .skip-mobile {
+    display: inline;
+  }
+}
+
+@media (min-width: 1025px) {
+  .skip-mobile {
+    display: inherit;
+  }
+}
