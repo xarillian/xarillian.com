@@ -2,6 +2,8 @@
 title: Writing a Stellaris Mod
 summary: The process of getting my mod, Gender Diversity & Politics, to release. Game design, my careful considerations, and getting sidetracked with parsing.
 date: 2024-12-28
+tags: gamedev,architecture
+toc: true
 ---
 
 Stellaris is a science fiction story simulator developed by Paradox Studios and published by its parent company, Paradox Interactive. Technically, the niche it occupies is grand strategy with elements of the 4X genre, the “explore, expand, exploit, exterminate” that the Civilization series made famous, but I think that description does it a disservice. It’s more similar to Dwarf Fortress or EVE online where a story emerges out of the latent space created by the game’s mechanics and player(s)‘s imagination and ingenuity, even more so than its sister games, Crusader Kings, Hearts of Iron, et al.
@@ -24,7 +26,7 @@ I wanted to tread lightly with this subject matter while also acknowledging the 
 
 I think Stellaris is at its best when it’s allowed to be a lens to explore and engage with complex ideas, and morally scrupulous concepts are definitely not something it shies away from. In my opinion, video games are art in and of themselves; while they usually are a multimedia presentation, the mechanics and code are a unique form of artistic representation not found elsewhere. We can utilize them to further showcase the human experience.
 
-## Section 1: Technical Aspects
+## Technical Aspects
 
 Under the hood, Stellaris mods are written in the Clausewitz scripting language. It’s a domain-specific scripting language that compiles to native code at load time, developed by Paradox Studios for use in their Clausewitz engine — “Clausewitz” as in Carl von Clausewitz, a Prussian military theorist. You could call Clausewitz a “domain-specific language” or a “compiled language,” and those might be more accurate terms, but for this section I’ve called it a “parsed language”. Compiled felt too broad, domain-specific even moreso, where parsed got the nature of the beast just right.
 
@@ -83,7 +85,7 @@ You can also take a look at some modern solutions, like LuaJIT, which can be ext
 
 For more reading on parsed languages, especially in a video game context, I highly recommend this paper: [Evaluating Lua for Use in Computer Game Event Handling - Oskar Forsslund](https://silo.tips/download/evaluating-lua-for-use-in-computer-game-event-handling-oskar-forsslund#).
 
-## Section 2: Design Considerations
+## Design Considerations
 
 The first challenge in designing a Stellaris mod concerning gender politics was tackling with the fact that I’m a man. [I have inherent and internalized privileges] arising from my inborn gender that should *not* be reflected in the content of the mod. This design space has been treaded before, by other modders — in fact, this mod was originally a fork of another gender-based mod though none of the original code exists (I did reuse visual assets, thank you for those @TODO on steam) — but I feel as if the design decisions made in those other implementations did a poor job at actually portraying oppression. 
 
@@ -97,7 +99,7 @@ talk about matriarchy/patriarchy civics as examples from the mod
 
 should talk about the challenge of making the mod feel “naturalistic” and what goes into that
 
-## Section 3: Conclusion
+## Conclusion
 
 I set out to do two things with this article: describe my mod and talk about some of the considerations of the design details. Somehow it evolved into an exploration of how programming enables storytelling and the technical architecture that makes certain forms of storytelling possible. The parsed language approach of Clausewitz, despite its quirks, is a fantastic foundation for modders to build on that’s both performant and accessible.
 

@@ -2,18 +2,41 @@
 
 {% block content %}
 {% if post %}
-  {% if post.tagline %}
-    <span class="this-part-is-me-being-a-little-freak">
-      post.tagline
-    </span>
-  {% endif %}
-<h1>{{ post.title }}</h1>
-<div class="blog-post-content">
-  {{ post.content|safe }}
-</div>
+  <div>
+    {% if post.tagline %}
+      <span class="this-part-is-me-being-a-little-freak">
+        {{ post.tagline }}
+      </span>
+    {% endif %}
+  </div>
+
+  <span class="blog-post">
+    <h1 class="blog-post">{{ post.title }}</h1>
+
+    {% if post.toc_html %}
+      <div class="table-of-contents">
+        {{ post.toc_html|safe }}
+      </div>
+    {% endif %}
+
+    <div class="blog-post">
+      {{ post.content|safe }}
+    </div>
+  </span>
+
+  <p>This entry was tagged
+    {% for tag in post.tags %}
+      {% if loop.first and loop.length <= 2 %}
+        {{ tag }}
+      {% elif loop.last %}
+        and {{ tag }}
+      {% else %}
+        {{ tag }},
+      {% endif %}
+    {% endfor %}
+  </p>
+
 {% else %}
-<p>
-  No content found (embarassing).
-</p>
+  <p>No content found (embarrassing).</p>
 {% endif %}
 {% endblock %}

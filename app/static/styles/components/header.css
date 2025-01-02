@@ -4,6 +4,7 @@ header {
   background-color: var(--transparency-layer);
   position: relative;
   min-height: 4.5em;
+  border: 1px solid var(--accent-color);
 }
 
 @media (max-width: 769px) {
@@ -33,24 +34,40 @@ header {
   margin-left: 0.25em;
 }
 
+.header-title-container a {
+  border-bottom: none;
+}
+
+.header-title-container h1:hover::before {
+  left: 2px;
+  text-shadow: -2px 0 #00d8ff;
+  animation: glitch-anim-1 4s infinite linear alternate-reverse;
+  pointer-events: none;
+}
+
+.header-title-container h1:hover::after {
+  left: -2px;
+  text-shadow: -2px 0 #ffa800;
+  animation: glitch-anim-2 4s infinite linear alternate-reverse;
+  pointer-events: none;
+}
+
 .main-nav {
   display: flex;
   margin-left: 1em;
   gap: 1rem;
-  text-transform: uppercase;
 }
 
 @media (max-width: 769px) {
   .main-nav {
     position: absolute;
-    left: 1.75em; /* 0.25em + 1.5rem to match tagline position */
+    left: 1.75em;
     top: 3em;
     margin-left: 0;
   }
 }
 
 .tagline {
-  opacity: 0.75;
   max-width: 100%;
   padding-left: 1.5rem;
   font-size: 0.65rem;

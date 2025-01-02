@@ -19,6 +19,7 @@
   --transparency-layer: rgba(0, 0, 0, 0.1);
   /* Widths */
   --content-width: 780px;
+  --reading-width: 65ch;
   /* 
    * --breakpoint-desktop: 1025px
    * --breakpoint-tablet: 769px

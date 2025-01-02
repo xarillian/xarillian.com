@@ -1,7 +1,7 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 import markdown2
 from flask import render_template, abort
@@ -22,6 +22,9 @@ class BlogPost:
   url: str
   summary: Optional[str] = None
   tagline: Optional[str] = None
+  toc: bool = False
+  toc_html: Optional[str] = None
+  tags: List[str] = field(default_factory=list)
 
   @classmethod
   def from_file(cls, file_path: Path) -> "BlogPost":
@@ -34,30 +37,38 @@ class BlogPost:
       content=content.content,
       summary=content.metadata.get('summary'),
       tagline=content.metadata.get('tagline'),
-      url=f"/blog/{file_path.stem}"
+      url=f"/blog/{file_path.stem}",
+      toc=content.metadata.get('toc', False),
+      tags=content.metadata.get('tags', []),
     )
 
   def render_content(self, markdown_extras: Optional[list] = None) -> "BlogPost":
     """Render markdown content to HTML and return a new BlogPost instance."""
     if markdown_extras is None:
       markdown_extras = ['fenced-code-blocks', 'tables', 'break-on-newline']
+    if self.toc:
+      markdown_extras.extend(['toc', 'header-ids'])
 
     rendered = markdown2.markdown(self.content, extras=markdown_extras)
+
     return BlogPost(
         title=self.title,
         date=self.date,
         content=Markup(rendered),
         url=self.url,
         summary=self.summary,
-        tagline=self.tagline
+        tagline=self.tagline,
+        toc=self.toc,
+        toc_html=Markup(rendered.toc_html) if self.toc else None,
+        tags=self.tags,
     )
 
 
 class Blog:
   """Handles loading and pagination of blog posts."""
-  def __init__(self, posts_dir: Path, max_per_page: int = 10):
+  def __init__(self, posts_dir: Path):
     self.posts_dir = posts_dir
-    self.max_per_page = max_per_page
+    self.max_per_page = MAX_PER_PAGE
     self._posts = None
 
   @property

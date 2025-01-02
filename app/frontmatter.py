@@ -52,6 +52,12 @@ def frontmatter(content: str) -> ParsedMarkdown:
           value = datetime.strptime(value, '%Y-%m-%d')
         except ValueError as ex:
           raise InvalidDateFormatError(f'Invalid date format: {value}. Expected YYYY-MM-DD') from ex
+      elif key == 'tags':
+        value = [tag.strip() for tag in value.split(',') if tag.strip()]
+      elif value.lower() in ('true', 'false'):
+        value = value == 'true'
+      elif value.isdigit():
+        value = int(value)
 
       metadata[key] = value
 
