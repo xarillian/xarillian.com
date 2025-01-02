@@ -1,62 +1,7 @@
-.about-me-image {
-  float: right;
-  width: 175px;
-  margin: 0 0 1em 1.5em;
-  border-radius: 4px;
-}
 
-.this-part-is-me-being-a-little-freak {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2em;
-  font-family: 'Silkscreen', cursive;
-  margin-top: 0.8em;
-}
 
-.header-content {
-  display: flex;
-  position: relative;
-  justify-content: space-between;
-  align-items: flex-start;
-  font-family: 'Silkscreen', cursive;
-}
 
-.title-container {
-  flex-direction: column;
-  align-items: flex-start;
-  margin-left: 0.25em;
-}
 
-.links {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-}
-
-.links ul {
-  display: flex;
-  flex-direction: column;
-  list-style-type: none;
-  gap: 1em;
-  padding: 0;
-}
-
-.links a {
-  color: var(--link-color);
-  border: 0.1em solid var(--link-color);
-  text-decoration: none;
-}
-
-.links a:hover {
-  transition: all 0.3s ease; 
-  background-color: var(--accent-color);
-  color: var(--bold-color);
-}
-
-.links li {
-  text-align: center;
-  font-size: 1.2rem;
-}
 
 .tagline {
   opacity: 0.75;
@@ -71,6 +16,64 @@
 
 .skip-mobile {
   display: none;
+}
+
+.blog-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.entry-wrapper {
+  margin-bottom: 2rem;
+}
+
+.entry-overview {
+  display: flex;
+  margin: 2rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
+}
+
+.date {
+  flex: 0 0 120px;
+  color: #8892b0;
+  font-family: monospace;
+}
+
+.detail h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.detail h1 a {
+  color: #4a9eff;
+  text-decoration: none;
+}
+
+.detail h1 a:hover {
+  text-decoration: underline;
+}
+
+.summary {
+  color: #8892b0;
+  margin-top: 0.5rem;
+}
+
+.pagination {
+  text-align: center;
+  color: #8892b0;
+  font-family: monospace;
+}
+
+.pagination a {
+  color: #4a9eff;
+  text-decoration: none;
+}
+
+.pagination .disabled {
+  color: #4a4a4a;
 }
 
 .no-link-formatting a,
@@ -104,17 +107,11 @@
   }  
 }
 
-@media (min-width: 1025px) {
   .header-content {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .title-container {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-  }
 
   .tagline {
     display: block;

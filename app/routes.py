@@ -1,8 +1,11 @@
 import random
 
-from flask import Blueprint, redirect, render_template, render_template_string, url_for
+from flask import Blueprint, redirect, render_template, url_for
 
-from .utils import QUOTES, get_menu_items
+from app.blog import render_blog_template, view_post
+
+
+from .utils import QUOTES
 
 
 main = Blueprint('main', __name__)
@@ -13,6 +16,17 @@ def home():
     return redirect(url_for('main.about_me'))
 
 
+@main.route('/blog')
+@main.route('/blog/page/<int:page_index>')
+def blog(page_index: int = 1):
+    return render_blog_template(page_index)
+
+
+@main.route('/blog/<slug>')
+def blog_post(slug):
+    return view_post(slug)
+
+
 @main.route('/about')
 def about_me():
     return render_template('about.html')
@@ -21,22 +35,3 @@ def about_me():
 @main.route('/random-quote')
 def random_quote():
     return random.choice(QUOTES)
-
-
-@main.route('/menu')
-def menu():
-    # Currently unused (gross)
-    menu_items = get_menu_items()
-    menu_html = render_template_string(
-        """
-        <ul>
-        {% for item in menu_items %}
-            <a href="{{ item.link }}" target="_blank">
-              <li><p><i class="{{ item.icon }}"></i> {{ item.display }}</p></li>
-            </a>
-        {% endfor %}
-        </ul>
-        """,
-        menu_items=menu_items,
-    )
-    return menu_html

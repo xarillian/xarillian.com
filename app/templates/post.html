@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if post %}
+  {% if post.tagline %}
+    <span class="this-part-is-me-being-a-little-freak">
+      post.tagline
+    </span>
+  {% endif %}
+<h1>{{ post.title }}</h1>
+<div class="blog-post-content">
+  {{ post.content|safe }}
+</div>
+{% else %}
+<p>
+  No content found (embarassing).
+</p>
+{% endif %}
+{% endblock %}

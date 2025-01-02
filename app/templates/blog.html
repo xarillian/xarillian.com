@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="entry-wrapper">
+  {% for post in posts %}
+    <div class="entry-overview">
+      <div class="date">{{ post.date.strftime('%b %d, %Y') }}</div>
+      <div class="detail">
+        <a href="{{ post.url }}"><h1>{{ post.title }}</h1></a>
+        {% if post.summary %}
+          <div class="summary">{{ post.summary }}</div>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% if total_pages > 1 %}
+  <div class="pagination">
+    {% if current_page == 2 %}
+      <a href="{{ url_for('main.blog') }}">« Previous</a>
+    {% elif current_page > 2 %}
+      <a href="{{ url_for('main.blog', page_index=current_page-1) }}">« Previous</a>
+    {% else %}
+      <span class="disabled">« Previous</span>
+    {% endif %}
+    
+    — <strong>{{ current_page }}</strong> —
+    
+    {% if current_page < total_pages %}
+      <a href="{{ url_for('main.blog', page_index=current_page+1) }}">Next »</a>
+    {% else %}
+      <span class="disabled">Next »</span>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
