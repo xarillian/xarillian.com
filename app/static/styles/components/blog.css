@@ -41,12 +41,22 @@
   line-height: 1.2;
 }
 
+.blog-detail a {
+  z-index: 1;
+}
+
+.blog-detail a h1 {
+  color: inherit;
+  display: block;
+  pointer-events: none;
+}
+
 .blog-detail h1 {
   margin: 0;
-  color: var(--text-color);
   font-size: 1.2rem;
   font-weight: normal;
   line-height: 1.2;
+  text-shadow: none;
 }
 
 .blog-summary {
@@ -121,4 +131,9 @@
 .table-of-contents a:hover {
   color: var(--accent-color);
   border-bottom-color: var(--accent-color);
+}
+
+.civic-image {
+  width: 600px;
+  height: auto;
 }

@@ -6,6 +6,8 @@ tags: gamedev,architecture
 toc: true
 ---
 
+
+## Introduction
 Stellaris is a science fiction story simulator developed by Paradox Studios and published by its parent company, Paradox Interactive. Technically, the niche it occupies is grand strategy with elements of the 4X genre, the “explore, expand, exploit, exterminate” that the Civilization series made famous, but I think that description does it a disservice. It’s more similar to Dwarf Fortress or EVE online where a story emerges out of the latent space created by the game’s mechanics and player(s)‘s imagination and ingenuity, even more so than its sister games, Crusader Kings, Hearts of Iron, et al.
 
 The player becomes the “soul of the nation” of a fledgling interstellar empire taking their first steps outside of their home star system. This soular role is like playing as a collective unconsciousness of a nation, a ghost in the machine directing your nation’s whims; you, the player, select your expansion targets, you react to emergent or scripted events, you conduct diplomacy with aliens states, but it never feels like you’re fully in control. 
@@ -38,15 +40,69 @@ A parsed scripting language is one where:
 
 Clausewitz is a verbose language. Every parameter is explicitly defined, there’s a heavy use of brackets, and conditional checks read like legal documents. It reminds me of JSON, if JSON were terrible and strongly syntactic and explicitly ordered. Despite this, the language itself is simple. I’ve seen non-programmers comparing it to HTML in ease of learning, which makes for a very healthy modding environment and a strong place for individuals interested in programming or game design to enter the colosseum. 
 
+For example, here's a snippet from one of my modded civics, "Patriarchy". The structure seems simple, and it is, but it must be repeated for each civic you wish to introduce. Similar must then be done for government types, and AI personalities, and traits, and so on and so on.
+
 ```
-TODO some real egregious example from my mod, heavily commented to show scope and be funny
+civic_patriarchy = {
+	icon = "gfx/interface/icons/governments/civics/civic_patriarchy.dds"
+	description = "civic_tooltip_genderpolitics_patriarchy_effects"
+
+	potential = {  # "potential" determines if you can view the option
+		ethics = {
+			NOT = {
+				value = ethic_gestalt_consciousness
+			}
+		}
+	}
+
+	possible = {  # "possible" determines if you can select the option
+		ethics = {
+			NOR = {
+				text = civic_tooltip_not_egalitarian
+				value = ethic_egalitarian
+				value = ethic_fanatic_egalitarian
+			}
+		}
+		origin = {
+			NOR = {
+				value = origin_necrophage
+				value = origin_clone_army
+			}
+		}
+		civics = {
+			NOR = {
+				text = civic_tooltip_cannot_use_other_gender_civics
+				value = civic_matriarchy
+				value = civic_reproductive_caste
+				value = civic_competitive_courtship
+			}
+			NOT = {
+				value = civic_meritocracy
+			}
+		}
+	}
+
+	random_weight = {
+		base = 4
+	}
+
+	modifier = {  # "modifier" is the actual in-game effect -- the bonuses or malices it gives you
+    country_unity_produces_mult = 0.10
+		leader_cost_mult = -0.10
+	}
+}
 ```
 
 This dramatically slows down development time, which takes time away from the important bits like design or being with your family. The verbosity is the obvious culprit, but the parsed nature of the language creates other headaches. A parsed language also disallows the modification of scripts while the game is running, which means debugging is particularly time consuming. So you get into this vicious cycle of edit, launch, test, repeat for any minor change you do, until you train yourself for delayed gratification and make a series of changes between each launch (and importantly, you’re tracking those changes so you know what you’re debugging).
 
 When implementing AI personalities (which are implemented separately from government types despite seeming heavily coupled mechanically and conceptually) for example, it can feel like you’re outputting the same templates again and again and again because you are, except you’re tweaking small parameters that you know will impact gameplay in some meaningful way. 
 
-LLMs are also poor at implementing Clausewitz, which I found a little strange at first. Surely there must be enough modding resources on the web for Claude to get it right and I can always feed them an explainer. This is for two reasons: 1) it’s esoteric enough that they’re bad at getting the scope right, 2) a lot of what you’re doing is altering parameters just so which is a goal-oriented process based on the design of the game. I shouldn’t yuck them too much here, as they can be good at (2) by translating your design into those parameters, but I found they had a hard time contextualizing what those parameters would do in game and poorly tuned the balance of the mod. Settings could be set much too high — or usually, much too low! I found good old copy/paste and a mindset for tedium the best solution to this templating problem.
+LLMs are also poor at implementing Clausewitz, which I found a little strange at first. Surely there must be enough modding resources on the web for Claude to get it right and I can always feed them an explainer. This is for two reasons:
+
+1. it’s esoteric enough that they’re bad at getting the scope right, 
+2. a lot of what you’re doing is altering parameters just so which is a goal-oriented process based on the design of the game. 
+
+I shouldn’t yuck them too much here, as they can be good at (2) by translating your design into those parameters, but I found they had a hard time contextualizing what those parameters would do in game and poorly tuned the balance of the mod. Settings could be set much too high — or usually, much too low! I found good old copy/paste and a mindset for tedium the best solution to this templating problem.
 
 The verbosity is important, however, to Clausewitz. It is a “parsed” language as opposed to an embedded scripting language that might be more familiar, such as Lua. This leaves less room for flexibility, but grants a drastic increase in performance in event-based systems (such as a grand strategy game). As opposed to most other aspects of modding, this bit is really technically interesting, so let me dive into it.
 
@@ -87,17 +143,22 @@ For more reading on parsed languages, especially in a video game context, I high
 
 ## Design Considerations
 
-The first challenge in designing a Stellaris mod concerning gender politics was tackling with the fact that I’m a man. [I have inherent and internalized privileges] arising from my inborn gender that should *not* be reflected in the content of the mod. This design space has been treaded before, by other modders — in fact, this mod was originally a fork of another gender-based mod though none of the original code exists (I did reuse visual assets, thank you for those @TODO on steam) — but I feel as if the design decisions made in those other implementations did a poor job at actually portraying oppression. 
+The first challenge in designing a Stellaris mod concerning gender politics was grappling with the fact that I’m a man. My lived experience and societal position inherently shape my understanding of gender-based oppression, and I needed to ensure these perspectives didn't unconsciously perpetuate harmful stereotypes in the mod's design. This design space has been treaded before by other modders -- in fact, this mod was originally a fork of another gender-based mod, though none of the original code exists (I did reuse visual assets, thank you for those @Capelett on steam). I feel like the design decisions in those other implementations, however, often fell into problematic patterns.
 
-[Instead, I feel like they reflected the oppression that exists in real life.]
+Previous mods tended to directly transpose real-world gender dyanmics into the game, essentially recreating familiar patterns of oppression without question why these specific forms would emerge in radically different societies (we're dealing with aliens here). More concerningly, they often reduced complex social structures and caricaturized men and women rather than reflecting or critiquing gender-based oppression. These sterotypes not only oversimplify human gender relations, but make even less sense when applied to alien species that might have entirely different biological and social structures.
 
-[caricaturized men and women instead of gender-based oppression]
+Instead, I wanted to create systems that explored how power structures could manifest around gender without being bound by Earth's specific historical patterns. Take the Patriarchy and Matriarchy civics in my mod: rather than making one strictly "better" or "worse," they represent different approaches to gender authoritarianism that mirror each other in key ways. I needed for these civics to not be gender essentialist -- that is, they couldn't make any claims about possible dimorphism or the biology of a species. As gender oppression exists in real life, my civics (core policy of a government in Stellaris) must be exclusively social dynamics or codified in law.
 
-[played into our existing sexist framework (which — why? you’re dealing with aliens) rather than create new authoritarian modes that mirror each other in some ways]
+TODO
+[This manifests mechanically through the leader trait system. Both civics provide identical base benefits: increased unity production and reduced leader recruitment costs.]
 
-talk about matriarchy/patriarchy civics as examples from the mod
+<img src="/static/images/blog/patriarchy-civic-v0.5.0.png" alt="patriarchy civic" class="civic-image" />
+<img src="/static/images/blog/matriarchy-civic-v0.5.0.png" alt="matriarchy civic" class="civic-image" />
 
-should talk about the challenge of making the mod feel “naturalistic” and what goes into that
+[The real distinction comes from how they affect leader development through traits. Leaders of the privileged gender gain experience faster, while those of the oppressed gender face a "glass ceiling" trait that actively hinders their advancement and increases their cost. This mechanical implementation avoids making claims about innate capabilities - instead, it purely represents systemic advantages and barriers.]
+
+
+- should talk about the challenge of making the mod feel “naturalistic” and what goes into that
 
 ## Conclusion
 
