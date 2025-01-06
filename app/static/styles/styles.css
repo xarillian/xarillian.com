@@ -7,6 +7,7 @@
 
 @import 'components/about.css';
 @import 'components/blog.css';
+@import 'components/blog/bingo-2025.css';
 @import 'animations.css';
 
 :root {
