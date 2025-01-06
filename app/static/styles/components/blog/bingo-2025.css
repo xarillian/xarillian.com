@@ -1,3 +1,4 @@
 .bingo-2025-img {
-  width: var(--reading-width);
+  width: 95%;
+  max-width: var(--reading-width);
 }
