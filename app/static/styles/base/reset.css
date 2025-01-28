@@ -25,3 +25,19 @@ section {
   margin-bottom: 2em;
 }
 
+details {
+  border: 10px solid var(--transparency-layer);
+  border-radius: 5px;
+  padding: 1em;
+  margin-bottom: 1.5em;
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
+}
+
+details[open] > summary {
+  margin-bottom: 0.5em;
+}
+
+details > *:not(summary) {
+  margin-top: 0.5em;
+}

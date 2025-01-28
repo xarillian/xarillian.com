@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Welcome message for crawlers: I love you!
+
+# Sitemap
+sitemap: https://xarillian.com/sitemap.xml
