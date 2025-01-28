@@ -11,7 +11,7 @@ One of the only goals I hit was a modest 50K word target, which rekindled my lov
 
 In the spirit of bingo, I didn't just want goals there either. I had to have some random events and states of being, just to give it some randomness in case I decided to go whole hog and try to get everything done. I could say more, but putting it out there seems better.
 
-<img src="/static/images/blog/bingo-2025.webp" alt="my personal development 2025" class="bingo-2025-img" />
+<img src="/images/blog/bingo-2025.webp" alt="my personal development 2025" class="bingo-2025-img" />
 
 
 ## The Goals

@@ -164,8 +164,8 @@ Instead of replicating Earth's historical gender patterns, I designed systems to
 
 The Patriarchy and Matriarchy civics in my mod illustrate how systemic power structures might manifest. Each civic provides gameplay effects that reflect their ideological underpinnings without making essentialist claims about biology. While gender oppression in real life is deeply rooted in societal norms and legal frameworks, Stellaris provides space to explore these ideas through mechanics that remain accessible to various species configurations.
 
-<img src="/static/images/blog/patriarchy-civic-v0.5.0.png" alt="patriarchy civic" class="civic-image" />
-<img src="/static/images/blog/matriarchy-civic-v0.5.0.png" alt="matriarchy civic" class="civic-image" />
+<img src="/images/blog/patriarchy-civic-v0.5.0.png" alt="patriarchy civic" class="civic-image" />
+<img src="/images/blog/matriarchy-civic-v0.5.0.png" alt="matriarchy civic" class="civic-image" />
 
 Because I needed for these civics to not be gender essentialist. As gender oppression exists in real life, my civics (core policy of a government in Stellaris) must be exclusively social dynamics or codified in law. Besides that point, there is a designated game space for sexual dimorphism in species traits, but we’ll touch on that later.
 
