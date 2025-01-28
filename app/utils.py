@@ -4,6 +4,9 @@ QUOTES = [
   'a ship in a harbor is safe, but that is not what ships are built for',
   'everything excellent is as difficult as it is rare',
   'you can just do things',
+  'reach heaven by violence!',
+  'I like this player. It played well. It did not give up.',
+  '...the player believed the universe had spoken to it through the 0s and 1s',
 ]
 
 
