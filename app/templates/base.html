@@ -4,11 +4,21 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>{% block title %}xarillian{% endblock %}</title>
+
   <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}"/>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  {% block extra_head %}{% endblock %}
+
+  <meta property="og:url" content="{{ request.url }}">
+  <meta property="og:site_name" content="xarillian">
+
+  {% block extra_head %}
+    <meta name="description" content="Developer from the Canadian prairies interested in web development, video games, and machine learning.">
+    <meta property="og:title" content="{{ self.title() }}">
+    <meta property="og:description" content="Developer from the Canadian prairies interested in web development, video games, and machine learning.">
+    <meta property="og:type" content="website">
+  {% endblock %}
 </head>
 <body>
   {% include 'header.html' %}

@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
 {% block title %}xarillian - {{ post.title }}{% endblock %}
-{% block meta_description %}{{ post.summary if post.summary else post.content|striptags|truncate(200) }}{% endblock %}
-{% block og_type %}article{% endblock %}
+
+
+{% block extra_head %}
+  {{ super() }}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
+{% endblock %}
+
 
 {% block content %}
 {% if post %}
