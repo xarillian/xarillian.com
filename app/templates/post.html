@@ -4,7 +4,7 @@
 
 
 {% block extra_head %}
-  {{ super() }}
+  <meta name="description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
   <meta property="og:type" content="article">
   <meta property="og:title" content="{{ self.title() }}">
   <meta property="og:description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
