@@ -103,6 +103,15 @@
   font-size: 0.9rem;
 }
 
+@media (max-width: 769px) {
+  .table-of-contents {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .table-of-contents::before {
   content: "Contents";
   display: block;
@@ -131,9 +140,4 @@
 .table-of-contents a:hover {
   color: var(--accent-color);
   border-bottom-color: var(--accent-color);
-}
-
-.civic-image {
-  width: 600px;
-  height: auto;
 }

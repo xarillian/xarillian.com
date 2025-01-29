@@ -19,6 +19,8 @@ body {
 
 img {
   border: 10px solid var(--transparency-layer);
+  width: 95%;
+  max-width: var(--reading-width);
 }
 
 section {

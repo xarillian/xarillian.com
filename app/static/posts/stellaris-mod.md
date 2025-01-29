@@ -46,52 +46,50 @@ For example, here's a snippet from one of my modded civics, "Patriarchy". The st
 
 ```
 civic_patriarchy = {
-	icon = "gfx/interface/icons/governments/civics/civic_patriarchy.dds"
-	description = "civic_tooltip_genderpolitics_patriarchy_effects"
-
-	potential = {  # "potential" determines if you can view the option
-		ethics = {
-			NOT = {
-				value = ethic_gestalt_consciousness
-			}
-		}
-	}
-
-	possible = {  # "possible" determines if you can select the option
-		ethics = {
-			NOR = {
-				text = civic_tooltip_not_egalitarian
-				value = ethic_egalitarian
-				value = ethic_fanatic_egalitarian
-			}
-		}
-		origin = {
-			NOR = {
-				value = origin_necrophage
-				value = origin_clone_army
-			}
-		}
-		civics = {
-			NOR = {
-				text = civic_tooltip_cannot_use_other_gender_civics
-				value = civic_matriarchy
-				value = civic_reproductive_caste
-				value = civic_competitive_courtship
-			}
-			NOT = {
-				value = civic_meritocracy
-			}
-		}
-	}
-
-	random_weight = {
-		base = 4
-	}
-
-	modifier = {  # "modifier" is the actual in-game effect -- the bonuses or malices it gives you
+  icon = "gfx/interface/icons/governments/civics/civic_patriarchy.dds"
+  description = "civic_tooltip_genderpolitics_patriarchy_effects"
+  potential = {  # "potential" determines if you can view the option
+    ethics = {
+      NOT = {
+        value = ethic_gestalt_consciousness
+      }
+    }
+  }
+  possible = {  # "possible" determines if you can select the option
+    ethics = {
+      NOR = {
+        text = civic_tooltip_not_egalitarian
+        value = ethic_egalitarian
+        value = ethic_fanatic_egalitarian
+      }
+    }
+    origin = {
+      NOR = {
+        value = origin_necrophage
+        value = origin_clone_army
+      }
+    }
+    civics = {
+      NOR = {
+        text = civic_tooltip_cannot_use_other_gender_civics
+        value = civic_matriarchy
+        value = civic_reproductive_caste
+        value = civic_competitive_courtship
+      }
+      NOT = {
+        value = civic_meritocracy
+      }
+    }
+  }
+  random_weight = {
+    base = 4
+  }
+  # "modifier" is the actual in-game effect
+  # i.e. the bonuses or malices it gives you
+  modifier = { 
     country_unity_produces_mult = 0.10
-		leader_cost_mult = -0.10
-	}
+    leader_cost_mult = -0.10
+  }
 }
 ```
 
