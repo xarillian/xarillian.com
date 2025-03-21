@@ -1,3 +1,19 @@
+from pathlib import Path
+
+
+# Directory structure
+APP_ROOT = Path('app')
+STATIC_DIR = APP_ROOT / 'static'
+TEMPLATES_DIR = APP_ROOT / 'templates'
+RAW_POSTS_DIR = STATIC_DIR / 'raw_posts'
+POSTS_DIR = STATIC_DIR / 'posts'
+
+
+# Blog
+MAX_POSTS_PER_PAGE = 7
+
+
+# Main page quotes
 QUOTES = [
   'it\'s not the user\'s fault',
   'it\'s not the mountains we conquer, but ourselves',
@@ -8,18 +24,3 @@ QUOTES = [
   'I like this player. It played well. It did not give up.',
   '...the player believed the universe had spoken to it through the 0s and 1s',
 ]
-
-
-def get_menu_items():
-    return [
-        {
-          'link': 'https://github.com/xarillian',
-          'display': 'github',
-          'icon': 'fab fa-github'
-        },
-        {
-          'link': 'https://www.linkedin.com/in/austin-heinrich/',
-          'display': 'linkedin',
-          'icon': 'fab fa-linkedin'
-        },
-    ]

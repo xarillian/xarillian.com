@@ -7,10 +7,7 @@ import markdown2
 from flask import render_template, abort
 from markupsafe import Markup
 
-from app.frontmatter import FrontmatterException, frontmatter
-
-
-MAX_PER_PAGE = 7
+from app.utils.frontmatter import frontmatter
 
 
 @dataclass

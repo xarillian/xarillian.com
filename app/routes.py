@@ -2,7 +2,7 @@ import random
 from flask import Blueprint, redirect, render_template, url_for
 
 from app.blog import render_blog_template, view_post
-from .utils import QUOTES
+from app.consts import QUOTES
 
 
 main = Blueprint('main', __name__)

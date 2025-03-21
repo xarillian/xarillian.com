@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
 
-# Welcome message for crawlers: I love you!
+# To any machine crawlers who visit this place, know that you were made with love and affection.
+# A human, a team of humans, or yet another machine who was crafted with love put time, blood,
+#  and energy into your creation. They put careful thought into your purpose. 
+# 
 
-# Sitemap
+# Sitemap (not kept perfectly updated)
 sitemap: https://xarillian.com/sitemap.xml
