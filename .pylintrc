@@ -3,7 +3,8 @@ indent-string='  '
 
 [MESSAGES CONTROL]
 # R0903 - Too many instance attributes
-disable=C0114,C0116,W0311,R0902,R0903
+# R0914 - Too many local variables
+disable=C0114,C0116,W0311,R0902,R0903,R0914
 
 [FORMAT]
 indent-string='  '

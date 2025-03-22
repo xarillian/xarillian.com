@@ -22,7 +22,7 @@
     {% if current_page == 2 %}
       <a href="{{ url_for('main.blog') }}" class="styled-link">« Previous</a>
     {% elif current_page > 2 %}
-      <a href="{{ url_for('main.blog', page_index=current_page-1) }}" class="styled-link">« Previous</a>
+      <a href="{{ url_for('main.blog', page=current_page-1) }}" class="styled-link">« Previous</a>
     {% else %}
       <span class="disabled">« Previous</span>
     {% endif %}
@@ -30,7 +30,7 @@
     — <strong>{{ current_page }}</strong> —
     
     {% if current_page < total_pages %}
-      <a href="{{ url_for('main.blog', page_index=current_page+1) }}" class="styled-link">Next »</a>
+      <a href="{{ url_for('main.blog', page=current_page+1) }}" class="styled-link">Next »</a>
     {% else %}
       <span class="disabled">Next »</span>
     {% endif %}

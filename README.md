@@ -16,16 +16,54 @@ cd xarillian.com
 
 2. Create a virtual environment and install dependencies:
 
-```
+```bash
 python -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+uv install -r requirements.txt  # or pip install -r requirements.txt
+python app.prebuild.bundle_css.py
 ```
 
-3. Run the development server:
+3. Run the prebuild scripts for CSS bundling and blog post preparation:
 
+```bash
+mkdir -p app/static/raw_posts  # Create directory for your blog posts
+mkdir -p app/static/posts      # Create directory for the prebuild output
+python -m app.prebuild.prebuild_blog
+python -m app.prebuild.bundle_css
 ```
+
+4. Run the development server:
+
+```bash
 flask run
 ```
 
 ...or just access it at https://xarillian.com
+
+## Adding Blog Posts
+
+Blog posts should be added to the `app/static/raw_posts` directory as Markdown files with frontmatter. Example format:
+
+```markdown
+---
+title: My Blog Post
+date: 2024-03-21
+summary: A short summary of the post
+tags: personal, technology
+toc: true
+---
+
+[Blog content goes here]
+```
+
+After adding new posts, run `python -m app.prebuild.prebuild_blog` to regenerate the static files.
+
+## Deployment
+
+The site includes deployment scripts for setting up on a Ubuntu server:
+
+- `install_application.sh` - Sets up dependencies and creates the initial environment
+- `start_application.sh` - Starts the Gunicorn server
+- `stop_application.sh` - Stops the running server
+
+The application is designed to serve static pre-rendered blog posts in production for optimal performance.

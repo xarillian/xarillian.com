@@ -2,11 +2,14 @@ from pathlib import Path
 
 
 # Directory structure
-APP_ROOT = Path('app')
+APP_ROOT = Path(__file__).parent
 STATIC_DIR = APP_ROOT / 'static'
 TEMPLATES_DIR = APP_ROOT / 'templates'
 RAW_POSTS_DIR = STATIC_DIR / 'raw_posts'
 POSTS_DIR = STATIC_DIR / 'posts'
+CSS_DIR = STATIC_DIR / 'styles'
+CSS_STYLES_FILE = CSS_DIR / 'styles.css'
+CSS_BUNDLE_FILE = CSS_DIR / 'bundle.css'
 
 
 # Blog
