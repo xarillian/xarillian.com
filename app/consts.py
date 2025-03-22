@@ -26,5 +26,5 @@ QUOTES = [
   'you can just do things',
   'reach heaven by violence!',
   'I like this player. It played well. It did not give up.',
-  '...the player believed the universe had spoken to it through the 0s and 1s',
+  '...the player believed the universe had spoken to it through the zeroes and ones',
 ]

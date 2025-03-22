@@ -1,15 +1,16 @@
 a:link, a:visited {
   color: var(--link-color);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--accent-color);
-  border-bottom-color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
 }
-
 b {
   color: var(--bold-color);
 }

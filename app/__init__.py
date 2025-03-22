@@ -17,9 +17,10 @@ def create_app():
   with app.app_context():
     from . import routes  # pylint: disable=C0415
     app.register_blueprint(routes.main)
+    app.jinja_env.globals['config'] = app.config
 
     @app.errorhandler(404)
-    def page_not_found(e):
+    def page_not_found():
       return render_template('404.html'), 404
 
   return app

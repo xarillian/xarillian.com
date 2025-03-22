@@ -10,6 +10,9 @@ sudo apt-get install -y python3 python3-pip python3-venv nginx certbot python3-c
 sudo mkdir -p "$DEPLOY_DIR"
 sudo chown -R ubuntu:ubuntu "$DEPLOY_DIR"
 
+export FLASK_ENV=production
+echo "export FLASK_ENV=production" >> /home/ubuntu/.bashrc
+
 cd "$DEPLOY_DIR"
 
 if [ ! -d "$VENV_DIR" ]; then
