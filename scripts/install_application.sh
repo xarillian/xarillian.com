@@ -17,8 +17,8 @@ if [ ! -d "$VENV_DIR" ]; then
 fi
 
 source venv/bin/activate
-pip install uv
-uv pip install --upgrade -r requirements.txt
+pip install --upgrade pip
+pip install --upgrade -r requirements.txt
 
 echo "Starting prebuild steps..."
 mkdir -p app/static/raw_posts
