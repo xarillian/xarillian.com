@@ -8,7 +8,7 @@ sudo apt-get update -y
 sudo apt-get install -y python3 python3-pip python3-venv nginx certbot python3-certbot-nginx
 
 sudo mkdir -p "$DEPLOY_DIR"
-sudo chown ubuntu:ubuntu "$DEPLOY_DIR"
+sudo chown -R ubuntu:ubuntu "$DEPLOY_DIR"
 
 cd "$DEPLOY_DIR"
 
@@ -20,12 +20,15 @@ source venv/bin/activate
 pip install --upgrade pip
 pip install --upgrade -r requirements.txt
 
+sudo chown -R ubuntu:ubuntu app/static
+
 echo "Starting prebuild steps..."
 mkdir -p app/static/raw_posts
 mkdir -p app/static/posts
+mkdir -p app/static/styles
 
-python -m app.prebuild.prebuild_blog
-python -m app.prebuild.bundle_css
+python -m app.prebuild.prebuild_blog || echo "Warning: prebuild_blog failed, continuing anyway"
+python -m app.prebuild.bundle_css || echo "Warning: bundle_css failed, continuing anyway"
 echo "Prebuild steps complete."
 
 deactivate

@@ -19,8 +19,7 @@ cd xarillian.com
 ```bash
 python -m venv venv
 source venv/bin/activate
-uv install -r requirements.txt  # or pip install -r requirements.txt
-python app.prebuild.bundle_css.py
+pip install -r requirements.txt
 ```
 
 3. Run the prebuild scripts for CSS bundling and blog post preparation:
