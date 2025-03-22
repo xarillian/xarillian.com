@@ -103,6 +103,20 @@ class Blog:
 
     return BlogPost.from_file(post_file).render_content()
 
+  def get_all_tags(self):
+    """Get all tags and their frequencies."""
+    tag_counts = {}
+    for post in self.posts:
+      for tag in post.tags:
+        tag_counts[tag] = tag_counts.get(tag, 0) + 1
+
+    return tag_counts
+
+  def get_posts_by_tag(self, tag):
+    """Get all posts with a specific tag."""
+    return [post for post in self.posts if tag in post.tags]
+
+
 
 def render_blog_template(page_index: int = 1):
   """Render the blog listing page."""

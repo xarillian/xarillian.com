@@ -2,7 +2,7 @@ from flask import render_template
 
 from app import create_app
 from app.blog import Blog
-from app.consts import POSTS_DIR, RAW_POSTS_DIR, TEMPLATES_DIR
+from app.consts import POSTS_DIR, RAW_POSTS_DIR, TAGS_FILE, TEMPLATES_DIR
 
 
 def create_static_blog_files():
@@ -50,6 +50,32 @@ def create_static_blog_files():
       print(f"Rendered blog index page {page}/{total_pages}: {page_path}")
 
     print("Completed creation of static blog files.")
+
+    tag_counts = blog.get_all_tags()
+    max_count = max(tag_counts.values()) if tag_counts else 1
+    min_count = min(tag_counts.values()) if tag_counts else 1
+    tag_sizes = {}
+
+    for tag, count in tag_counts.items():
+      if max_count == min_count:
+        tag_sizes[tag] = 2
+      else:
+        size = 1 + 2 * (count - min_count) / (max_count - min_count)
+        tag_sizes[tag] = round(size, 1)
+
+    with TAGS_FILE.open('w', encoding='utf-8') as file:
+      html = render_template('tags.html', tag_sizes=tag_sizes)
+      file.write(html)
+    print(f"Rendered tag cloud page: {TAGS_FILE}")
+
+    for tag in tag_counts:
+      posts = blog.get_posts_by_tag(tag)
+      tag_path = POSTS_DIR / f'tag_{tag}.html'
+      with tag_path.open('w', encoding='utf-8') as file:
+        html = render_template('tagged_posts.html', tag=tag, posts=posts)
+        file.write(html)
+
+      print(f"Rendered tag page for '{tag}': {tag_path}")
 
 
 if __name__ == '__main__':

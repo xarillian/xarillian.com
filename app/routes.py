@@ -1,8 +1,8 @@
 import random
 from flask import Blueprint, redirect, request, render_template, url_for, send_from_directory
 
-from app.blog import render_blog_template, view_post
-from app.consts import POSTS_DIR, QUOTES
+from app.blog import Blog, render_blog_template, view_post
+from app.consts import POSTS_DIR, QUOTES, RAW_POSTS_DIR
 
 
 main = Blueprint('main', __name__)
@@ -36,6 +36,39 @@ def blog_post(slug):
 
   # TODO warning message
   return view_post(slug)
+
+
+@main.route('/tags')
+def tags():
+  if is_using_static_blog():
+    return send_from_directory(POSTS_DIR, 'tags.html')
+
+  blog_obj = Blog(RAW_POSTS_DIR)
+  tag_counts = blog_obj.get_all_tags()
+  max_count = max(tag_counts.values()) if tag_counts else 1
+  min_count = min(tag_counts.values()) if tag_counts else 1
+
+  tag_sizes = {}
+  for tag, count in tag_counts.items():
+    if max_count == min_count:
+      tag_sizes[tag] = 2
+    else:
+      # Scale between 1 and 3em
+      size = 1 + 2 * (count - min_count) / (max_count - min_count)
+      tag_sizes[tag] = round(size, 1)
+
+  return render_template('tags.html', tag_sizes=tag_sizes)
+
+
+@main.route('/tags/<tag>')
+def tagged_posts(tag):
+  if is_using_static_blog():
+    return send_from_directory(POSTS_DIR, f'tag_{tag}.html')
+
+  blog_obj = Blog(RAW_POSTS_DIR)
+  posts = blog_obj.get_posts_by_tag(tag)
+  return render_template('tagged_posts.html', tag=tag, posts=posts)
+
 
 
 @main.route('/about')
