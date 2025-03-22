@@ -7,10 +7,8 @@ import markdown2
 from flask import render_template, abort
 from markupsafe import Markup
 
-from app.frontmatter import FrontmatterException, frontmatter
-
-
-MAX_PER_PAGE = 7
+from app.consts import POSTS_DIR, MAX_POSTS_PER_PAGE, RAW_POSTS_DIR
+from app.utils.frontmatter import FrontmatterException, frontmatter
 
 
 @dataclass
@@ -52,23 +50,23 @@ class BlogPost:
     rendered = markdown2.markdown(self.content, extras=markdown_extras)
 
     return BlogPost(
-        title=self.title,
-        date=self.date,
-        content=Markup(rendered),
-        url=self.url,
-        summary=self.summary,
-        tagline=self.tagline,
-        toc=self.toc,
-        toc_html=Markup(rendered.toc_html) if self.toc else None,
-        tags=self.tags,
+      title=self.title,
+      date=self.date,
+      content=Markup(rendered),
+      url=self.url,
+      summary=self.summary,
+      tagline=self.tagline,
+      toc=self.toc,
+      toc_html=Markup(rendered.toc_html) if self.toc else None,
+      tags=self.tags,
     )
 
 
 class Blog:
   """Handles loading and pagination of blog posts."""
-  def __init__(self, posts_dir: Path):
+  def __init__(self, posts_dir: Path, max_per_page: int=MAX_POSTS_PER_PAGE):
     self.posts_dir = posts_dir
-    self.max_per_page = MAX_PER_PAGE
+    self.max_per_page = max_per_page
     self._posts = None
 
   @property
@@ -105,13 +103,26 @@ class Blog:
 
     return BlogPost.from_file(post_file).render_content()
 
+  def get_all_tags(self):
+    """Get all tags and their frequencies."""
+    tag_counts = {}
+    for post in self.posts:
+      for tag in post.tags:
+        tag_counts[tag] = tag_counts.get(tag, 0) + 1
 
-blog = Blog(Path('app/static/posts'))
+    return tag_counts
+
+  def get_posts_by_tag(self, tag):
+    """Get all posts with a specific tag."""
+    return [post for post in self.posts if tag in post.tags]
+
 
 
 def render_blog_template(page_index: int = 1):
   """Render the blog listing page."""
+  blog = Blog(RAW_POSTS_DIR, MAX_POSTS_PER_PAGE)
   result = blog.get_paginated_posts(page_index)
+
   return render_template(
     'blog.html',
     posts=result['posts'],
@@ -119,9 +130,14 @@ def render_blog_template(page_index: int = 1):
     total_pages=result['pages'],
   )
 
+
 def view_post(slug: str):
   """Render a single blog post."""
+  blog = Blog(RAW_POSTS_DIR)
   post = blog.get_post(slug)
+
   if post is None:
+    print("Blog post does not exist with the specified slug.")
     abort(404)
+
   return render_template('post.html', post=post)

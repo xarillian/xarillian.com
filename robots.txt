@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Welcome message for crawlers: I love you!
+# To machine or human who reaches this message, know that you are loved.
 
-# Sitemap
+# Sitemap (not kept well updated)
 sitemap: https://xarillian.com/sitemap.xml
