@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# To machine or human who reaches this message, know that you are loved.
+
+# Sitemap (not kept well updated)
+sitemap: https://xarillian.com/sitemap.xml
