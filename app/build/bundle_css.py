@@ -19,6 +19,8 @@ def bundle_css():
       return (3, str(path))
     if 'components' in str(path):
       return (4, str(path))
+    if 'utilities.css' in str(path):
+      return (1000, str(path))
     return (5, str(path))
 
   css_files.sort(key=sort_key)

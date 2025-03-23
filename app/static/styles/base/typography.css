@@ -15,6 +15,13 @@ b {
   color: var(--bold-color);
 }
 
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  margin-top: 8px;
+}
+
 h1, h2 {
   font-family: 'Silkscreen', cursive;
 }
