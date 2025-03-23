@@ -25,13 +25,13 @@ pip install --upgrade -r requirements.txt
 
 sudo chown -R ubuntu:ubuntu app/static
 
-echo "Starting prebuild steps..."
+echo "Starting build..."
 mkdir -p app/static/raw_posts
 mkdir -p app/static/posts
 mkdir -p app/static/styles
 
-python -m app.prebuild.prebuild_blog || echo "Warning: prebuild_blog failed, continuing anyway"
-python -m app.prebuild.bundle_css || echo "Warning: bundle_css failed, continuing anyway"
-echo "Prebuild steps complete."
+python -m app.build.build_blog || echo "Warning: build_blog failed, continuing anyway."
+python -m app.build.bundle_css || echo "Warning: bundle_css failed, continuing anyway."
+echo "Build steps complete."
 
 deactivate

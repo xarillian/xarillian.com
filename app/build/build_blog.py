@@ -7,7 +7,7 @@ from app.consts import POSTS_DIR, RAW_POSTS_DIR, TAGS_FILE, TEMPLATES_DIR
 
 def create_static_blog_files():
   """
-  Prebuild script to convert Markdown blog posts to static HTML files.
+  Byukd script to convert Markdown blog posts to static HTML files.
   This should be run during deployment to generate static files.
   """
   POSTS_DIR.mkdir(parents=True, exist_ok=True)
@@ -15,7 +15,7 @@ def create_static_blog_files():
   app = create_app()
 
   with app.test_request_context():
-    print(f"Starting blog prebuild with templates from {TEMPLATES_DIR}")
+    print(f"Starting blog build with templates from {TEMPLATES_DIR}")
     blog = Blog(RAW_POSTS_DIR)
 
     print(f"Found {len(blog.posts)} blog posts to pre-render.")
