@@ -11,4 +11,4 @@ class Config:
       - USE_BUNDLE_CSS (bool): If the css served should use styles.css for rapid iteration or a nice bundle.
     """
     SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(24)
-    USE_BUNDLE_CSS = True # os.environ.get('FLASK_ENV') == 'production'
+    USE_BUNDLE_CSS = os.environ.get('FLASK_ENV') == 'production'
