@@ -17,14 +17,11 @@ body {
   }
 }
 
-img {
-  border: 10px solid var(--transparency-layer);
-  width: 95%;
-  max-width: var(--reading-width);
-}
-
-section {
-  margin-bottom: 2em;
+cite {
+  display: block;
+  text-align: right;
+  font-style: italic;
+  margin-top: 8px;
 }
 
 details {
@@ -42,4 +39,18 @@ details[open] > summary {
 
 details > *:not(summary) {
   margin-top: 0.5em;
+}
+
+hr {
+  color: var(--accent-color);
+}
+
+img {
+  border: 10px solid var(--transparency-layer);
+  width: 95%;
+  max-width: var(--reading-width);
+}
+
+section {
+  margin-bottom: 2em;
 }
