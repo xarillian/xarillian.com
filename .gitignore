@@ -4,9 +4,9 @@ __pycache__/
 venv/
 .venv/
 
-/static/styles/bundle.css
+static/styles/bundle.css
 
-/build/
-/docs/
+build/
+docs/
 
 xarillian.com.egg-info
