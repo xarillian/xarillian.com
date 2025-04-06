@@ -2,7 +2,8 @@ from pathlib import Path
 
 
 # Root directory structure
-APP_ROOT = Path(__file__).parent.parent.resolve()
+APP_ROOT = Path.cwd()
+
 CONTENT_DIR = APP_ROOT / "content"
 DOCS_DIR = APP_ROOT / "docs"
 STATIC_DIR = APP_ROOT / "static"
