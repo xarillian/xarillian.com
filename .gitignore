@@ -2,6 +2,9 @@ __pycache__/
 .pytest_cache
 *.pyc
 venv/
+.venv/
 
 app/static/styles/bundle.css
 app/static/posts
+
+/docs/
