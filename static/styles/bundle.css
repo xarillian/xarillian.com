@@ -168,7 +168,6 @@ p {
   margin: 1em 0;
 }
 
-
 /* Source: styles/animations.css */
 @keyframes glitch-anim-1 {
   0% { clip: rect(42px, 9999px, 44px, 0); }
@@ -217,7 +216,6 @@ p {
   95% { clip: rect(42px, 9999px, 97px, 0); }
   100% { clip: rect(38px, 9999px, 49px, 0); }
 }
-
 
 /* Source: styles/components/header.css */
 header {
@@ -295,7 +293,6 @@ header {
   font-size: 0.65rem;
 }
 
-
 /* Source: styles/components/about.css */
 .about-me, .about-website {
   max-width: var(--reading-width);
@@ -317,7 +314,6 @@ header {
   font-family: 'Silkscreen', cursive;
   margin-top: 0.8em;
 }
-
 
 /* Source: styles/components/blog.css */
 .blog-container {
@@ -481,7 +477,6 @@ header {
   border-bottom-color: var(--accent-color);
 }
 
-
 /* Source: styles/components/blog/bingo-2025.css */
 .bingo-2025-img {
   width: 95%;
@@ -540,5 +535,4 @@ header {
     display: inherit;
   }
 }
-
 

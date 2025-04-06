@@ -2,13 +2,18 @@ from pathlib import Path
 
 
 # Root directory structure
-APP_ROOT = Path(__file__).parent.parent
+APP_ROOT = Path(__file__).parent.parent.resolve()
 CONTENT_DIR = APP_ROOT / "content"
 DOCS_DIR = APP_ROOT / "docs"
+STATIC_DIR = APP_ROOT / "static"
 TEMPLATES_DIR = APP_ROOT / "templates"
 # Output directories
 POSTS_DIR = DOCS_DIR / "blog"
 TAGS_FILE = DOCS_DIR / "tags.html"
+# CSS directories
+CSS_DIR = STATIC_DIR / "styles"
+CSS_STYLES_FILE = CSS_DIR / "styles.css"
+CSS_BUNDLE_FILE = CSS_DIR / "bundle.css"
 
 # Blog config
 MAX_POSTS_PER_PAGE = 7

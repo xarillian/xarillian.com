@@ -6,6 +6,7 @@ from typing import List, Optional
 import markdown2
 from markupsafe import Markup
 
+from ssg.config import MAX_POSTS_PER_PAGE
 from ssg.frontmatter import FrontmatterException, frontmatter
 from ssg.render import render_template
 
@@ -118,29 +119,3 @@ class Blog:
   def get_posts_by_tag(self, tag):
     """Get all posts with a specific tag."""
     return [post for post in self.posts if tag in post.tags]
-
-
-
-def render_blog_template(page_index: int = 1):
-  """Render the blog listing page."""
-  blog = Blog(RAW_POSTS_DIR, MAX_POSTS_PER_PAGE)
-  result = blog.get_paginated_posts(page_index)
-
-  return render_template(
-    'blog.html',
-    posts=result['posts'],
-    current_page=result['page'],
-    total_pages=result['pages'],
-  )
-
-
-def view_post(slug: str):
-  """Render a single blog post."""
-  blog = Blog(RAW_POSTS_DIR)
-  post = blog.get_post(slug)
-
-  if post is None:
-    print("Blog post does not exist with the specified slug.")
-    abort(404)
-
-  return render_template('post.html', post=post)
