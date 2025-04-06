@@ -4,11 +4,10 @@ from pathlib import Path
 from typing import List, Optional
 
 import markdown2
-from flask import render_template, abort
 from markupsafe import Markup
 
-from app.consts import POSTS_DIR, MAX_POSTS_PER_PAGE, RAW_POSTS_DIR
-from app.utils.frontmatter import FrontmatterException, frontmatter
+from ssg.frontmatter import FrontmatterException, frontmatter
+from ssg.render import render_template
 
 
 @dataclass
@@ -39,6 +38,10 @@ class BlogPost:
       toc=content.metadata.get('toc', False),
       tags=content.metadata.get('tags', []),
     )
+
+  @property
+  def slug(self) -> str:
+    return self.url.split('/')[-1]
 
   def render_content(self, markdown_extras: Optional[list] = None) -> "BlogPost":
     """Render markdown content to HTML and return a new BlogPost instance."""
