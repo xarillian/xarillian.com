@@ -1,0 +1,15 @@
+[project]
+name = "xarillian.com"
+version = "0.1.0"
+description = "Personal web log"
+authors = [{ name = "Austin Heinrich" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "markdown2",
+  "jinja2",
+  "markupsafe"
+]
+
+[project.scripts]
+generate-site = "generate:generate_site"

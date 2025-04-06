@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}xarillian - {{ post.title }}{% endblock %}
+
+
+{% block extra_head %}
+  <meta name="description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
+{% endblock %}
+
+
+{% block content %}
+{% if post %}
+  <div>
+    {% if post.tagline %}
+      <span class="this-part-is-me-being-a-little-freak">
+        {{ post.tagline }}
+      </span>
+    {% endif %}
+  </div>
+
+  <span class="blog-post">
+    <h1 class="blog-post">{{ post.title }}</h1>
+
+    {% if post.toc_html %}
+      <div class="table-of-contents">
+        {{ post.toc_html|safe }}
+      </div>
+    {% endif %}
+
+    <div class="blog-post">
+      {{ post.content|safe }}
+    </div>
+  </span>
+
+  <p>This entry was tagged
+    {% for tag in post.tags %}
+      {% if loop.first and loop.length <= 2 %}
+      <a href="/tag_{{ tag }}.html" class="post-tag">{{ tag }}</a>
+      {% elif loop.last %}
+        and <a href="/tag_{{ tag }}.html" class="post-tag">{{ tag }}</a>
+      {% else %}
+      <a href="/tag_{{ tag }}.html" class="post-tag">{ tag }}</a>,
+      {% endif %}
+    {% endfor %}
+  </p>
+
+{% else %}
+  <p>No content found (embarrassing).</p>
+{% endif %}
+{% endblock %}

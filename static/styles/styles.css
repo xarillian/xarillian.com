@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+@import 'base/reset.css';
+@import 'base/typography.css';
+@import 'components/header.css';
+
+@import 'components/about.css';
+@import 'components/tags.css';
+@import 'components/blog.css';
+@import 'components/blog/bingo-2025.css';
+@import 'animations.css';
+
+:root {
+  /* Color */
+  --bg-color: #253e69;
+  --text-color: #e0e0ff;
+  --bold-color: #d4d4ff;
+  --link-color: #8ea6ff;
+  --accent-color: #2e5090;
+  --transparency-layer: rgba(0, 0, 0, 0.1);
+  /* Widths */
+  --content-width: 780px;
+  --reading-width: 65ch;
+  /* 
+   * --breakpoint-desktop: 1025px
+   * --breakpoint-tablet: 769px
+   */
+}
+
+@import 'utilities.css';

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}xarillian - Tags{% endblock %}
+
+{% block content %}
+<div class="tag-cloud">
+  <div class="tag-container">
+    {% for tag, size in tag_sizes.items() %}
+      <a 
+        href="/tag_{{ tag }}.html"
+        class="tag-link" 
+        style="font-size: {{ size }}em;"
+      >
+        {{ tag }}
+      </a>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

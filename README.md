@@ -22,16 +22,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Run the prebuild scripts for CSS bundling and blog post preparation:
-
-```bash
-mkdir -p app/static/raw_posts  # Create directory for your blog posts
-mkdir -p app/static/posts      # Create directory for the prebuild output
-python -m app.prebuild.prebuild_blog
-python -m app.prebuild.bundle_css
-```
-
-4. Run the development server:
+3. Run the development server:
 
 ```bash
 flask run
@@ -55,7 +46,7 @@ toc: true
 [Blog content goes here]
 ```
 
-After adding new posts, run `python -m app.prebuild.prebuild_blog` to regenerate the static files.
+After adding new posts, run `python -m app.buld.build_blog` to regenerate the static files.
 
 ## Deployment
 
