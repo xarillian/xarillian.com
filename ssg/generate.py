@@ -111,6 +111,8 @@ def generate_site():
   (DOCS_DIR / ".nojekyll").touch()
   print("Jekyll bypass file created.")
 
+  (DOCS_DIR / "CNAME").write_text("xarillian.com", encoding="utf-8")
+
   print(f"Site generated to {DOCS_DIR}")
 
 
