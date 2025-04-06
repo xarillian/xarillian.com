@@ -110,6 +110,7 @@ def generate_site():
 
   (DOCS_DIR / ".nojekyll").touch()
   print("Jekyll bypass file created.")
+
   print(f"Site generated to {DOCS_DIR}")
 
 
