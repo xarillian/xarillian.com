@@ -102,10 +102,14 @@ def generate_site():
   (DOCS_DIR / "about.html").write_text(index, encoding="utf-8")
   (DOCS_DIR / "about").mkdir(exist_ok=True)
   shutil.copy(DOCS_DIR / "about.html", DOCS_DIR / "about/index.html")
+  print("Index page generated.")
 
   page_404 = render_template("404.html")
   (DOCS_DIR / "404.html").write_text(page_404, encoding="utf-8")
+  print("404 page generated.")
 
+  (DOCS_DIR / ".nojekyll").touch()
+  print("Jekyll bypass file created.")
   print(f"Site generated to {DOCS_DIR}")
 
 
