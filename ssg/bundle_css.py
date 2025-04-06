@@ -1,93 +1,90 @@
-from app.consts import CSS_DIR, CSS_BUNDLE_FILE, CSS_STYLES_FILE
+from ssg.config import CSS_BUNDLE_FILE, CSS_DIR, CSS_STYLES_FILE
 
 
-def bundle_css():
-  print("Starting to bundle CSS...")
-  CSS_BUNDLE_FILE.parent.mkdir(parents=True, exist_ok=True)
-
-  css_files = [f for f in CSS_DIR.glob('**/*.css') if f != CSS_BUNDLE_FILE]
-  print(f"Found {len(css_files)} CSS files to bundle.")
+def collect_css_files():
+  files = [f for f in CSS_DIR.glob("**/*.css") if f != CSS_BUNDLE_FILE]
 
   def sort_key(path):
-    if 'reset.css' in str(path):
-      return (0, str(path))
-    if 'base' in str(path):
-      return (1, str(path))
-    if 'animations.css' in str(path):
-      return (2, str(path))
-    if 'header.css' in str(path):
-      return (3, str(path))
-    if 'components' in str(path):
-      return (4, str(path))
-    if 'utilities.css' in str(path):
-      return (1000, str(path))
-    return (5, str(path))
+    name = str(path)
+    priorities = {
+      "reset.css": 0,
+      "base": 1,
+      "animations.css": 2,
+      "header.css": 3,
+      "components": 4,
+      "utilities.css": 1000,
+    }
 
-  css_files.sort(key=sort_key)
+    for key, priority in priorities.items():
+      if key in name:
+        return (priority, name)
+    return (5, name)
 
-  imports = []
-
-  if CSS_STYLES_FILE.exists():
-    with CSS_STYLES_FILE.open('r', encoding='utf-8') as file:
-      content = file.read()
-      import_lines = [line for line in content.split('\n') if '@import url(' in line]
-      imports.extend(import_lines)
+  return sorted(files, key=sort_key)
 
 
-  with CSS_BUNDLE_FILE.open('w', encoding='utf-8') as bundle:
+def extract_imports(path):
+  if not path.exists():
+    return []
+
+  with path.open(encoding="utf-8") as f:
+    return [line for line in f if "@import url(" in line]
+
+
+def extract_root_css(files):
+  for file in files:
+    content = file.read_text(encoding="utf-8")
+    if ":root" in content:
+      start = content.find(":root")
+      end = content.find("}", start) + 1
+      return content[start:end]
+  return ""
+
+
+def write_css_bundle(files, imports, root_css):
+  def remove_root_block(content):
+    if ":root" not in content:
+      return content
+    start = content.find(":root")
+    end = content.find("}", start) + 1
+    return content[:start] + content[end:]
+
+  with CSS_BUNDLE_FILE.open("w", encoding="utf-8") as bundle:
     bundle.write("/* Bundled CSS file - auto-generated */\n\n")
+
     if imports:
       bundle.write("/* Google Fonts */\n")
-      for import_line in imports:
-        bundle.write(import_line + "\n")
+      bundle.writelines(line.strip() + "\n" for line in imports)
       bundle.write("\n")
-
-    root_css = ""
-    for css_file in css_files:
-      with css_file.open('r', encoding='utf-8') as file:
-        content = file.read()
-        if ':root' in content:
-          root_start = content.find(':root')
-          root_end = content.find("}", root_start) + 1
-          if root_start > -1:
-            root_css = content[root_start:root_end]
 
     if root_css:
       bundle.write("/* CSS Variables */\n")
-      bundle.write(root_css)
-      bundle.write("\n\n")
+      bundle.write(root_css + "\n\n")
 
-    for css_file in css_files:
-      if css_file.name == 'styles.css':
-        # We've already handled styles.css
+    for css_file in files:
+      if css_file.name == "styles.css":
         continue
 
       rel_path = css_file.relative_to(CSS_DIR.parent)
       bundle.write(f"/* Source: {rel_path} */\n")
-      with css_file.open('r', encoding='utf-8') as file:
-        content = file.read()
-        lines = content.split('\n')
-        filtered_lines = []
 
-        for line in lines:
-          if '@import' in line:
-            continue
-          filtered_lines.append(line)
-
-        if ":root" in content and root_css:
-          root_start = content.find(":root")
-          if root_start > -1:
-            root_end = content.find("}", root_start) + 1
-            content = content[:root_start] + content[root_end:]
-
-        filtered_content = '\n'.join(filtered_lines)
-        bundle.write(filtered_content)
-
-      bundle.write("\n\n")
+      content = css_file.read_text(encoding="utf-8")
+      content = remove_root_block(content)
+      lines = [line for line in content.splitlines() if "@import" not in line]
+      bundle.write("\n".join(lines) + "\n\n")
       print(f"Added {rel_path} to bundle.")
 
-  print(f"CSS bundling completed. Bundled file saved to {CSS_BUNDLE_FILE}")
 
+def bundle_css():
+    print("Starting to bundle CSS...")
+    CSS_BUNDLE_FILE.parent.mkdir(parents=True, exist_ok=True)
 
-if __name__ == '__main__':
-  bundle_css()
+    css_files = collect_css_files()
+    print(f"Found {len(css_files)} CSS files to bundle.")
+
+    imports = extract_imports(CSS_STYLES_FILE)
+    root_css = extract_root_css(css_files)
+
+    write_css_bundle(css_files, imports, root_css)
+
+    print(f"CSS bundling completed. Bundled file saved to {CSS_BUNDLE_FILE}")
