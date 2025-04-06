@@ -1,0 +1,86 @@
+a:link, a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+b {
+  color: var(--bold-color);
+}
+
+h1, h2 {
+  font-family: 'Silkscreen', cursive;
+}
+
+h1 {
+  display: flex;
+  position: relative;
+  font-size: 2.5rem;
+  margin: 0;
+  padding-top: 0;
+  letter-spacing: 0.05em;
+  text-shadow: 
+    -2px -2px 0 var(--accent-color),
+    2px -2px 0 var(--accent-color),
+    -2px 2px 0 var(--accent-color),
+    2px 2px 0 var(--accent-color),
+    -1px -1px 0 var(--accent-color),
+    1px -1px 0 var(--accent-color),
+    -1px 1px 0 var(--accent-color),
+    1px 1px 0 var(--accent-color);
+}
+
+h1 .original,
+h1 .phonetic {
+  display: inline-block;
+}
+
+h1 .phonetic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+h1:hover .original {
+  opacity: 0;
+}
+
+h1:hover .phonetic {
+  opacity: 1;
+}
+
+h1::before,
+h1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+h1:hover::before {
+  left: 2px;
+  text-shadow: -2px 0 #00d8ff;
+  animation: glitch-anim-1 4s infinite linear alternate-reverse;
+}
+
+h1:hover::after {
+  left: -2px;
+  text-shadow: -2px 0 #ffa800;
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+p {
+  margin: 1em 0;
+}
