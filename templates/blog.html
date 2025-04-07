@@ -8,7 +8,7 @@
     <div class="entry-overview">
       <div class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</div>
       <div class="blog-detail">
-        <h1><a href="{{ BASE }}/blog/{{ post.slug }}">{{ post.title }}</a></h1>
+        <h1><a href="{{ BASE }}/{{ post.url }}">{{ post.title }}</a></h1>
         {% if post.summary %}
           <div class="blog-summary">{{ post.summary }}</div>
         {% endif %}
