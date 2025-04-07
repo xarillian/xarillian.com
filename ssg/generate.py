@@ -8,20 +8,22 @@ from ssg.render import render_template
 def generate_blog(blog: Blog):
   print("Generating blog posts...")
   print(f"Found {len(blog.posts)} posts to render.")
+
+  POSTS_DIR.mkdir(parents=True, exist_ok=True)
+  (DOCS_DIR / "blog").mkdir(exist_ok=True)
+
   for post in blog.posts:
     rendered_content = post.render_content()
     post_dir = POSTS_DIR / post.slug
     post_dir.mkdir(parents=True, exist_ok=True)
     output_path = post_dir / "index.html"
-    POSTS_DIR.mkdir(parents=True, exist_ok=True)
     with output_path.open('w', encoding='utf-8') as file:
-        file.write(render_template("post.html", post=rendered_content))
+      file.write(render_template("post.html", post=rendered_content))
 
   print("Generating blog index...")
   total_pages = (len(blog.posts) + MAX_POSTS_PER_PAGE - 1) // MAX_POSTS_PER_PAGE + 1
   for page in range(1, total_pages):
     paginated_posts = blog.get_paginated_posts(page)
-
     if page == 1:
       output_path_main = DOCS_DIR / "blog" / "index.html"
       output_path_page_1 = DOCS_DIR / "blog" / "page" / "1" / "index.html"
@@ -40,16 +42,13 @@ def generate_blog(blog: Blog):
     else:
       output_path = DOCS_DIR / "blog" / "page" / str(page) / "index.html"
       output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    with output_path.open('w', encoding='utf-8') as file:
-      file.write(render_template(
-        "blog.html",
-        posts=paginated_posts["posts"],
-        current_page=paginated_posts["page"],
-        total_pages=paginated_posts["pages"],
-      ))
-
-  (DOCS_DIR / "blog").mkdir(exist_ok=True)
+      with output_path.open('w', encoding='utf-8') as file:
+        file.write(render_template(
+          "blog.html",
+          posts=paginated_posts["posts"],
+          current_page=paginated_posts["page"],
+          total_pages=paginated_posts["pages"],
+        ))
 
 
 def generate_tags(blog: Blog):
