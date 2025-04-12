@@ -1,7 +1,7 @@
 from pathlib import Path
 
 
-BASE_SITE = "/xarillian.com"
+BASE_SITE = ""
 
 # Root directory structure
 APP_ROOT = Path.cwd()
