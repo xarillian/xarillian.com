@@ -8,7 +8,7 @@
     <div class="entry-overview">
       <div class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</div>
       <div class="blog-detail">
-        <h1><a href="{{ BASE }}/{{ post.url }}">{{ post.title }}</a></h1>
+        <h1><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h1>
         {% if post.summary %}
           <div class="blog-summary">{{ post.summary }}</div>
         {% endif %}
@@ -20,13 +20,13 @@
 {% if total_pages > 1 %}
   <div class="pagination">
     {% if current_page > 1 %}
-      <a href="{{ BASE }}/blog/page/{{ current_page - 1 }}/">« Previous</a>
+      <a href="/blog/page/{{ current_page - 1 }}/">« Previous</a>
     {% endif %}
     
     — <strong>{{ current_page }}</strong> —
 
     {% if current_page < total_pages %}
-      <a href="{{ BASE }}/blog/page/{{ current_page + 1 }}/">Next »</a>
+      <a href="/blog/page/{{ current_page + 1 }}/">Next »</a>
     {% endif %}
   </div>
 {% endif %}
