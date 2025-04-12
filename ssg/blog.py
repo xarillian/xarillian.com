@@ -8,7 +8,6 @@ from markupsafe import Markup
 
 from ssg.config import MAX_POSTS_PER_PAGE
 from ssg.frontmatter import FrontmatterException, frontmatter
-from ssg.render import render_template
 
 
 @dataclass
