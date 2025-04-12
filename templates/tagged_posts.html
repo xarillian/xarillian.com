@@ -11,7 +11,7 @@
         <div class="entry-overview">
           <div class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</div>
           <div class="blog-detail">
-            <h1><a href="{{ BASE }}/{{ post.url }}">{{ post.title }}</a></h1>
+            <h1><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h1>
             {% if post.summary %}
               <div class="blog-summary">{{ post.summary }}</div>
             {% endif %}
@@ -23,7 +23,7 @@
     <p>No posts found with this tag (embarrassing).</p>
   {% endif %}
   <div class="back-link">
-    <a href="{{ BASE }}/tags/" class="styled-link">« Back to Tag Cloud</a>
+    <a href="/tags/" class="styled-link">« Back to Tag Cloud</a>
   </div>
 </div>
 {% endblock %}
