@@ -1,7 +1,7 @@
 ---
 title: Orchestrion: The Cadaverine Necrocracy
 summary: Where death is just the beginning of your career.
-date: 2025-03-22
+date: 2025-04-14
 tags: worldbuilding
 toc: false
 ---
@@ -31,18 +31,7 @@ Word of Aldarich’s death reached Remich quickly. Seefürst Harwin Escher arriv
 
 The winter wind slashed against the tower’s walls, harsh and heavy on the old, quarried stone. The delegation had settled in the hall, the third floor of the tower, maps of Ahn’s holdings already unfurled across the long table. Alice sat at the table’s head, in her father’s seat, silent and small, as the men spoke about Ahnian lands and her potential wardship.
 
-<blockquote>
-  <p>
-    “The girl will need proper instruction at Echternach,” insisted Magister Dorn. “Look at the quality of these enchantments — it’s warm as summertime in here! Such raw talent requires structure.”
-  </p>
-
-  <p>
-    “And, of course," he adds, "the entitlement shall be paid with the release of these holdings,” the men silently nod their heads around the table, the concern already laid to rest.
-  </p>
-
-  <p>
-    The girl had not spoken a word throughout their deliberations. Now, she raised her eyes to the window, as if expecting something. A commotion rose from below the tower, voices carrying on the winter wind.
-  </p>
-
-  <cite>— An excerpt from "A History of Ahn: Illustrated" </cite>
+<blockquote><p>“The girl will need proper instruction at Echternach,” insisted Magister Dorn. “Look at the quality of these enchantments — it’s warm as summertime in here! Such raw talent requires structure.”
+  </p><p>“And, of course," he adds, "the endowment shall be paid with the release of these holdings,” the men silently nod their heads around the table, the concern already laid to rest.</p><p>The girl had not spoken a word throughout their deliberations. Now, she raised her eyes to the window, as if expecting something. A commotion rose from below the tower, voices carrying on the winter wind.</p>
+  <cite>— An excerpt from "A History of Ahn: Illustrated" </cite>
 </blockquote>
