@@ -1,10 +1,13 @@
 ---
-title: Orchestrion: The Cadaverine Necrocracy
-summary: Where death is just the beginning of your career.
-date: 2025-03-22
-tags: worldbuilding
+title: Orchestrion: The Second Shift
+summary: A vignette of Cadaverine, where death is the beginning of your career.
+date: 2025-04-19
+tags: worldbuilding,necrocracy
 toc: false
 ---
+
+This is the first in a series exploring my main worldbuilding project, Orchestrion. This article focuses on the Cadaverine Necrocracy, a major power in the modern era.
+
 <blockquote>
   <p>
     "My great-grandfather was a sculptor," the gentleman said. "He carved this relief over a period of three years. You can see here the intricate details of the world serpent, the braised horns down its neck and, ah, the warped fabrics around its maw. He spent so many hours staring at it through the shadow, trying to get every detail just so," he smiled, glancing at the frazzled tourist. "He was actually contacted by some research fellows, not sure from where, about how he was able to create such an accurate depiction of the creature; not sure what came of that, unfortunately. I wasn't able to ask him before his death. A shame he wasn't able to finish it in life."
@@ -14,35 +17,27 @@ toc: false
   
   <p>"Yes, we petitioned and he was allowed to complete it after he passed."</p>
 
-  <cite>— Conversation between a Cadaverinian man and an Akkadian tourist</cite>
+  <cite>— Conversation between a Cadaverinian man and an Akkadian tourist, 2025 AM (after-Mar, reckoned from the end of the Seven Minutes’s War)</cite>
 </blockquote>
 
 <hr/>
 
-Imagine a society where passion, not survival, drives your existence. A society where you are at liberty to create art, pursue knowledge, gain social standing, and engage in whatever physical pursuits you desire. There is no soul-crushing labor, no mandatory toil.  People work for the betterment of themselves and society, in fields that they genuinely love. Retirement is unnecessary. Your path to the afterlife is already secured and the only position that matters is your station after death -- because in the Necrocracy, your service only begins in death.
+In Cadaverine, the dead do not rest. They are employed.
 
-The Cadaverine Necrocracy was founded in 684 AM (after-Mar), the time of the Fourth Founding, by the lady Alice I Lucette Quintrell, the first God-Empress. Alice descended from a minor noble family whose sole holding hugged the misty coastline of what would become the capital, Ahn. Their lands were never abundant; the Quintrells themselves prospered due to the sale of shellfish and sulfur, but the harsh conditions in these industries made for a sallow and hardened people. Alice hated being among them and her father, the baronet Aldarich, often felt the same, sealing himself away in their hold for years at a time studying queer magics while his people suffered. Alice often holed away with him, watching him in practice and study. This was intentional; even at her young age it was obvious she was a disciple of Mar, one of the Eldrean Guard.
+At sunset, the cobbled, crowded streets of Ahn, the capital, echo with skeletal footfalls as the second shift begins. A group of revenant lamplighters shamble through an alley, attended by a living member of the Ministry of Mourning. The coroner walks quietly, tasked with their maintenance and procession. He carries a small notebook, though the names and routes are memorized. Recording them is ritual more than requirement. His grandfather is among them tonight. His jaw is wired shut from premature rot, his gait uneven from the fall that killed him. Each of the lamplighters carries a brass pole, inlaid with copper wire. When the tip touches the base of a wickless lantern strung above the canal, a green-gold light flares to life. The dead's movements are slow, yet precise, driven by some stubborn survival instinct compelling them to preserve their decaying flesh and muscle.
 
-By twelve, she was advising and instructing her father in all magical matters. At fifteen, dispelling storms that would take a council of mages was simple for her. She took to immersing all of her senses in the shadow, the realm of imagination or "pre-magic", with an intuition that unnerved those closest to her. While most mages could only perceive a flat, limited slice of the shadow realm through their Sight, Alice described depth and texture, dimension that shouldn't have been possible. It was said that Alice could see silver threads that wrapped around living beings like bindings; a view of a soul connected to a body, a connection that would persist after death.
+Sometime before their thirtieth, every citizen submits a preferred posthumous career draft; a failure to do so, an invalid designation, or an early expiration means this duty falls to next-of-kin or to the state. Most people list something simple, such as streetsweeping, postal work, or lamplighting. The coroner's grandfather, despite being an accomplished surgeon, signed his will early in life. He requested a short service after death, demanding rockbreaking, sewer service, as well as lamplighting. Service length is usually indefinite. Their tenure ends not with ceremony, but when the resin runs out or the tendons fail too many times in a month. Maintenance can be expensive, and it falls to descendants to ensure continued tenure.
 
-Aldarich Quintrell would pass in the winter of 681 AM, when Alice was just sixteen. The diplomatic mission to the Fiels Islands was routine, a two day journey, a negotiation of fishing rights in the boundary between the two fiefs. A swift southern front brought a dramatic change in temperature, the weather becoming erratic. What began as a light snowfall, within hours, became vicious blizzard that claimed two vessels, including Aldarich’s flagship.
+The dead are not puppets, nor are most mindless. They are dead, re-appointed by the God-Empress. They are not without will, but their desires are tempered by honor, duty, and the slow disintegration of their body. Everything they were before remains, 'cept that they are dead. A lamplighter may well have been a baker in life, or a poet, a wrestler. The vocation rarely matters, though the coroner often hears them reciting shanties from half a century ago or snickering among themselves over a joke that hardly makes sense.
 
-Word of Aldarich’s death reached Remich quickly. Seefürst Harwin Escher arrived at the Quintrell holding a week later, ostensibly to pay respects to the daughter of a loyal vassal. With him came representatives from three prominent merchant’s houses, already discussing among themselves how best to exploit the Ahnian wealth hidden along the coastline, and a delegation from Echternwch Zauberei, eager to assess if the daughter Quintrell shared her father’s talents.
+A lamplighter is of limited utility, and most of the group would be granted final rest within the decade. If the grandfather had not been friends with the clerk at the ministry, or if he had made his will later in life, doubtless he would have served for over a century, drafted back into medicine at the behest of the greater good. The undead with specialist training, such as surgeons, talented musicians, or linguists, are meticulously upkept. Families take great pride in nurturing their dead into both good repair and ongoing civic contribution, often competing to keep their ancestors pristine. Nothing signals status like a cellist entering their second century still earning applause.
 
-The winter wind slashed against the tower’s walls, harsh and heavy on the old, quarried stone. The delegation had settled in the hall, the third floor of the tower, maps of Ahn’s holdings already unfurled across the long table. Alice sat at the table’s head, in her father’s seat, silent and small, as the men spoke about Ahnian lands and her potential wardship.
+Resurrection, after all, is no mere privilege. It is the debt the dead pay in service to the living. Upon death, each citizen within the borders of Cadaverine is raised by imperial edict of the fourth God-Empress, who sustains their spirit's return to the physical form. Only grave circumstances prevent resurrection, such as severe mutilation or destruction of the physical form. Those who are unable to resurrect are revered above all; that they gave so much during life the Empress had no need for them in death.
 
-<blockquote>
-  <p>
-    “The girl will need proper instruction at Echternach,” insisted Magister Dorn. “Look at the quality of these enchantments — it’s warm as summertime in here! Such raw talent requires structure.”
-  </p>
+When their lamplighting shift ends, the dead will be reassigned for the day. Many hold multiple vocations, and have no need for rest. The coroner watches his grandfather pause beneath a lantern, eyes hollow, head tilted as though hearing something just beyond the veil. A breeze rustles at the hem of the old man's coat, his favorite, stiff now with age and resin.
 
-  <p>
-    “And, of course," he adds, "the entitlement shall be paid with the release of these holdings,” the men silently nod their heads around the table, the concern already laid to rest.
-  </p>
+The coroner notes the moment in his journal, but hesitates. He remembers how his grandfather used to whistle through his teeth, kicking a stone down the street as he walked, shake his head at the news, or how badly he danced at a wedding. His grandmother would still howl whenever she recounted the latter. The memory catches in his throat. Still, he oversees hand-off of each of the dead to their next coroner, waving solemnly as his forefather limps into the distance. The lanterns flicker in the cool night. 
 
-  <p>
-    The girl had not spoken a word throughout their deliberations. Now, she raised her eyes to the window, as if expecting something. A commotion rose from below the tower, voices carrying on the winter wind.
-  </p>
+To the living, this is commonplace; the dead sweeping streets, tending archives, toiling in fields. For the undying, it is something else, something stranger. The Necrocracy enforces not a second chance, exactly, but a prolonged reckoning. Families learn to grieve in stages. The dead learn to live with the life they have already led.
 
-  <cite>— An excerpt from "A History of Ahn: Illustrated" </cite>
-</blockquote>
+In 2025 AM, the Necrocracy persists. It is the only polity that pre-exists the Seventh Founding. It alone is the only empire to span more than two foundings. As the rest of Orchestrion faces rebirth again and again, Cadaverine simply keeps walking.

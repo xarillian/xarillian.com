@@ -11,12 +11,11 @@ Build with Python on top of Junja2 for templating. Uses a custom static-site gen
 ```bash
 git clone https://github.com/xarillian/xarillian.com.git
 cd xarillian.com
-python -m venv venv
-source venv/bin/activate
-pip install .
-python -m ssg.generate
-cd docs
-python -m http.server
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e .
+python3 -m ssg.generate
+python3 -m http.server --directory docs
 ```
 
 ...or just access it at https://xarillian.com
