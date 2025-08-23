@@ -6,6 +6,9 @@ tags: gamedev,architecture
 toc: true
 ---
 
+**Notice: June 2025**
+I've ceased development on this mod. I wanted to wait for the release of Stellaris 4.0 before concluding work on the mod, and to my delight the mod came with the basic changes I originally desired when starting on Gender Diversity & Politics. It is for this reason, and because I have lost interest in the additional content I have created, that I will not continue development.
+
 ## Introduction
 Stellaris is a science fiction story simulator developed by Paradox Studios and published by its parent company, Paradox Interactive. Technically, the niche it occupies is grand strategy with elements of the 4X genre, the “explore, expand, exploit, exterminate” that the Civilization series made famous, but I think that description does it a disservice. It’s more similar to Dwarf Fortress or EVE online where a story emerges out of the latent space created by the game’s mechanics and player(s)‘s imagination and ingenuity, even more so than its sister games, Crusader Kings, Hearts of Iron, et al.
 
