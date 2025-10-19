@@ -2,7 +2,7 @@
 title: Orchestrion: The Second Shift
 summary: A vignette of Cadaverine, where death is the beginning of your career.
 date: 2025-04-19
-tags: worldbuilding,necrocracy
+tags: worldbuilding,orchestrion,necrocracy
 toc: false
 ---
 
@@ -17,7 +17,7 @@ This is the first in a series exploring my main worldbuilding project, Orchestri
   
   <p>"Yes, we petitioned and he was allowed to complete it after he passed."</p>
 
-  <cite>— Conversation between a Cadaverinian man and an Akkadian tourist, 2025 AM (after-Mar, reckoned from the end of the Seven Minutes’s War)</cite>
+  <cite>— Conversation between a Cadaverinian man and an Akkadian tourist, 2025 AM</cite>
 </blockquote>
 
 <hr/>
