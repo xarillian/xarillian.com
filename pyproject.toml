@@ -16,3 +16,7 @@ generate-site = "ssg.generate:generate_site"
 
 [tool.setuptools]
 packages = ["ssg"]
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
