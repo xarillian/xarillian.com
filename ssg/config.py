@@ -6,7 +6,8 @@ BASE_SITE = ""
 # Root directory structure
 APP_ROOT = Path.cwd()
 
-CONTENT_DIR = APP_ROOT / "content"
+PAGES_DIR = APP_ROOT / "pages"
+BLOG_DIR = PAGES_DIR / "blog"
 DOCS_DIR = APP_ROOT / "docs"
 STATIC_DIR = APP_ROOT / "static"
 TEMPLATES_DIR = APP_ROOT / "templates"

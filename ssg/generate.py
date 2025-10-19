@@ -1,7 +1,7 @@
 import shutil
 from ssg.bundle_css import bundle_css
-from ssg.blog import Blog
-from ssg.config import CONTENT_DIR, DOCS_DIR, MAX_POSTS_PER_PAGE, POSTS_DIR
+from ssg.blog import Blog, BlogPost
+from ssg.config import BLOG_DIR, DOCS_DIR, MAX_POSTS_PER_PAGE, PAGES_DIR, POSTS_DIR
 from ssg.render import render_template
 
 
@@ -51,6 +51,16 @@ def generate_blog(blog: Blog):
         ))
 
 
+def generate_page(markdown_file, output_name: str):    
+    page = BlogPost.from_file(markdown_file).render_content()
+    html = render_template("post.html", post=page)
+    
+    (DOCS_DIR / f"{output_name}.html").write_text(html, encoding="utf-8")
+    output_dir = DOCS_DIR / output_name
+    output_dir.mkdir(exist_ok=True)
+    (output_dir / "index.html").write_text(html, encoding="utf-8")
+
+
 def generate_tags(blog: Blog):
   print("Generating tags...")
   tags = blog.get_all_tags()
@@ -78,6 +88,14 @@ def generate_tags(blog: Blog):
 def generate_site():
   print("Starting site generation...")
 
+  directory_listing = (
+    f"Docs Directory: {DOCS_DIR}, ",
+    f"Content Directory: {BLOG_DIR}, "
+    f"Posts Directory: {POSTS_DIR}, "
+  )
+
+  print(directory_listing)
+
   bundle_css()
 
   if DOCS_DIR.exists():
@@ -90,18 +108,14 @@ def generate_site():
   shutil.copy("static/sitemap.xml", DOCS_DIR / "sitemap.xml")
   shutil.copy("robots.txt", DOCS_DIR / "robots.txt")
 
-  blog = Blog(CONTENT_DIR, MAX_POSTS_PER_PAGE)
+  blog = Blog(BLOG_DIR, MAX_POSTS_PER_PAGE)
 
   generate_blog(blog)
   generate_tags(blog)
 
-  index = render_template("about.html")
-  with (DOCS_DIR / "index.html").open('w', encoding='utf-8') as file:
-    file.write(index)
-  (DOCS_DIR / "about.html").write_text(index, encoding="utf-8")
-  (DOCS_DIR / "about").mkdir(exist_ok=True)
-  shutil.copy(DOCS_DIR / "about.html", DOCS_DIR / "about/index.html")
-  print("Index page generated.")
+  generate_page(PAGES_DIR / "about.md", "about")
+  shutil.copy(DOCS_DIR / "about.html", DOCS_DIR / "index.html")
+  print("Index page generated!")
 
   page_404 = render_template("404.html")
   (DOCS_DIR / "404.html").write_text(page_404, encoding="utf-8")
