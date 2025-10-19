@@ -83,4 +83,5 @@ h1:hover::after {
 
 p {
   margin: 1em 0;
+  font-size: 110%;
 }

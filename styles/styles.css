@@ -5,7 +5,6 @@
 @import 'base/typography.css';
 @import 'components/header.css';
 
-@import 'components/about.css';
 @import 'components/tags.css';
 @import 'components/blog.css';
 @import 'components/blog/bingo-2025.css';
@@ -13,15 +12,15 @@
 
 :root {
   /* Color */
-  --bg-color: #253e69;
+  --bg-color: #192c4d;
   --text-color: #e0e0ff;
   --bold-color: #d4d4ff;
   --link-color: #8ea6ff;
   --accent-color: #2e5090;
   --transparency-layer: rgba(0, 0, 0, 0.1);
-  /* Widths */
-  --content-width: 780px;
-  --reading-width: 65ch;
+  /* Max Widths */
+  --content-width: 800px;
+  --reading-width: 73ch;
   /* 
    * --breakpoint-desktop: 1025px
    * --breakpoint-tablet: 769px

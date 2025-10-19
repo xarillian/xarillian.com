@@ -7,15 +7,15 @@
 /* CSS Variables */
 :root {
   /* Color */
-  --bg-color: #253e69;
+  --bg-color: #192c4d;
   --text-color: #e0e0ff;
   --bold-color: #d4d4ff;
   --link-color: #8ea6ff;
   --accent-color: #2e5090;
   --transparency-layer: rgba(0, 0, 0, 0.1);
-  /* Widths */
-  --content-width: 780px;
-  --reading-width: 65ch;
+  /* Max Widths */
+  --content-width: 800px;
+  --reading-width: 73ch;
   /* 
    * --breakpoint-desktop: 1025px
    * --breakpoint-tablet: 769px
@@ -166,6 +166,7 @@ h1:hover::after {
 
 p {
   margin: 1em 0;
+  font-size: 110%;
 }
 
 /* Source: styles/animations.css */
@@ -291,28 +292,6 @@ header {
   max-width: 100%;
   padding-left: 1.5rem;
   font-size: 0.65rem;
-}
-
-/* Source: styles/components/about.css */
-.about-me, .about-website {
-  max-width: var(--reading-width);
-  width: 100%;
-  margin: 0 auto;
-}
-
-.about-me img {
-  float: right;
-  width: 200px;
-  margin: 0 0 1em 1.5em;
-  border-radius: 4px;
-}
-
-.this-part-is-me-being-a-little-freak {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2em;
-  font-family: 'Silkscreen', cursive;
-  margin-top: 0.8em;
 }
 
 /* Source: styles/components/blog.css */
