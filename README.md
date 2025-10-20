@@ -16,6 +16,13 @@ python -m ssg.generate
 python -m http.server --directory docs
 ```
 
+or uv:
+
+```
+uv run python -m ssg.generate
+uv run python -m http.server --directory docs
+```
+
 ...or just access it at https://xarillian.com
 
 ## Adding Blog Posts
@@ -27,7 +34,7 @@ Blog posts should be added to the `content` directory as Markdown files with fro
 title: My Blog Post
 date: 2024-03-21
 summary: A short summary of the post
-tags: personal,technology
+tags: personal,technology,some-other-tag
 toc: true
 ---
 

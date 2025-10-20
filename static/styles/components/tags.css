@@ -23,3 +23,15 @@
 .back-link {
   margin-top: 3rem;
 }
+
+.tag-posts h1 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tag-posts .entry-wrapper {
+  padding: 0;
+}
