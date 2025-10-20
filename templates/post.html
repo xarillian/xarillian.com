@@ -23,7 +23,11 @@
 
   <span class="blog-post">
     <h1 class="blog-post">{{ post.title }}</h1>
-
+    {% if post.date %}
+      {% if post.date.year > 2000 %}
+        <p class="blog-post-date">{{ post.date.strftime('%B %d, %Y') }}</p>
+      {% endif %}
+    {% endif %}
     {% if post.toc_html %}
       <div class="table-of-contents">
         {{ post.toc_html|safe }}
@@ -43,7 +47,7 @@
         {% elif loop.last %}
           and <a href="/tags/{{ tag }}" class="post-tag">{{ tag }}</a>
         {% else %}
-        <a href="/tags/{{ tag }}" class="post-tag">{ tag }}</a>,
+        <a href="/tags/{{ tag }}" class="post-tag">{{ tag }}</a>,
         {% endif %}
       {% endfor %}
     </p>
