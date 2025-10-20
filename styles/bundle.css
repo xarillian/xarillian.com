@@ -298,7 +298,7 @@ header {
 .blog-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 2rem 1rem;
 }
 
 .blog-post {
@@ -308,16 +308,17 @@ header {
 }
 
 .blog-post h1 {
-  margin: 1rem 0 1.5rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-bottom: 0.25rem;
   line-height: 1.2;
-  border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 0.5rem;
 }
 
 .blog-post h2 {
   font-size: 2rem;
   margin: 2.5rem 0 1.25rem;
   line-height: 1.3;
+  border-bottom: 1px solid var(--accent-color);
 }
 
 .blog-post pre {
@@ -328,6 +329,13 @@ header {
   margin: 1.5rem 0;
   border: 1px solid #e9ecef;
   font-size: 0.9rem;
+}
+
+.blog-post-date {
+  margin: 1rem 2rem auto;
+  color: #8892b0;
+  font-family: monospace;
+  line-height: 1.2;
 }
 
 .blog-date {
@@ -357,7 +365,9 @@ header {
 }
 
 .entry-wrapper {
-  margin-bottom: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 }
 
 .entry-overview {
@@ -374,7 +384,17 @@ header {
 }
 
 @media (max-width: 769px) {
+  .blog-container {
+    padding: 2rem 0.5rem;
+  }
+
+  .blog-post {
+    padding: 0;
+  }
+
   .entry-overview {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     flex-direction: column;
     align-items: flex-start;
   }
@@ -487,6 +507,18 @@ header {
 
 .back-link {
   margin-top: 3rem;
+}
+
+.tag-posts h1 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.tag-posts .entry-wrapper {
+  padding: 0;
 }
 
 /* Source: styles/utilities.css */
