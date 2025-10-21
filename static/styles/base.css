@@ -43,6 +43,27 @@ img {
 }
 
 /* ============================================
+ * UTILITY CLASSES
+ * ============================================ 
+ */
+
+ .skip-mobile {
+  display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .skip-mobile {
+    display: inline;
+  }
+}
+
+@media (min-width: 1025px) {
+  .skip-mobile {
+    display: inherit;
+  }
+}
+
+/* ============================================
  * TYPOGRAPHY
  * ============================================ 
  */
@@ -53,7 +74,6 @@ a {
 }
 
 a:link, a:visited {
-  transition: color 0.2s ease;
   border-bottom: 1px solid transparent;
   transition: border-color 0.6s ease;
 }
@@ -88,6 +108,7 @@ h1.xarillian {
   display: flex;
   position: relative;
   font-size: 2.7em;
+  margin-top: 0;
 }
 
 h1.xarillian::before,
@@ -99,6 +120,7 @@ h1.xarillian::after {
   width: 100%;
   height: 100%;
   opacity: 0.8;
+  pointer-events: none;
 }
 
 h1.xarillian:hover::before {
@@ -109,6 +131,10 @@ h1.xarillian:hover::before {
 h1.xarillian:hover::after {
   text-shadow: -2px 0 #ffa800;
   animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+.xarillian a {
+  border-bottom: none;
 }
 
 @keyframes glitch-anim-1 {
