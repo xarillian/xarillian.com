@@ -59,15 +59,42 @@
       
     
     
+      <div class="table-of-contents">
+        <ul>
+  <li><a href="#the-project">The Project</a>
+  <ul>
+    <li><a href="#refactoring-initial-assessment">Refactoring + Initial Assessment</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#the-runner">The Runner</a></li>
+    <li><a href="#embeddings">Embeddings</a></li>
+    <li><a href="#database-concerns">Database Concerns</a></li>
+    <li><a href="#testing-and-docs">Testing and Docs</a></li>
+  </ul></li>
+  <li><a href="#distribution">Distribution</a></li>
+  <li><a href="#slop">Slop?</a></li>
+  <li><a href="#future-plans">Future Plans</a></li>
+  <li><a href="#final-thoughts">Final Thoughts</a></li>
+</ul>
+
+      </div>
+    
 
     <div class="blog-post">
-      <p><a href="https://github.com/xarillian/GDLlama">GDLlama</a> is a GDExtension that allows a Godot developer to use the powerful <code>llama.cpp</code> library to run GGUF models in Godot games. When I started this project, I wanted to use Gemma 3 270m in my own Godot projects; that's a tiny model and it runs really well and I was excited to see how it performed. However, I quickly found that existing solutions for Godot were out of date, difficult to use, or both. So, I wanted to take a crack at it. GDLlama lets developers add AI-powered features to their games. You could do something with dialogue generation, or radiant quest creation. Have your NPCs respond dynamically to player actions, or create a DM for a virtual gaming experience that would have been impossible just a few years ago. The nascent space is just so vast and exciting, and I am so happy to contribute to it.</p>
+      <p><a href="https://github.com/xarillian/GDLlama">GDLlama</a> is a GDExtension that allows a Godot developer to use the powerful <code>llama.cpp</code> library to run GGUF models in Godot games.</p>
 
-<p>This was originally a fork of <a href="https://github.com/Adriankhl/godot-llm">godot-llm</a> by Adriankhl; I wanted to update his work to the latest version of <code>llama.cpp</code> so that I could use Google's new <a href="https://huggingface.co/unsloth/gemma-3-270m-it-GGUF/tree/main">Gemma 3 270m model</a> in my own projects, and I figured others might find it useful too. When I started working on the update, I found that there were quite a few issues with the original codebase that made it difficult to work with, so I ended up rewriting large portions of it. After a few months of development (I think I started in the end of July 2025), I tagged a stable 1.0.0 release.</p>
+<p>This is a continuation of <a href="https://github.com/xarillian/idle-game-prototype">a prototype project</a> I started a year or two ago concerning agents in video games. I was getting the emergent gameplay I wanted, but I ran into a few issues. Primarily, it was costly. I was directly calling OpenAI's APIs for every agent action, which quickly added up and wouldn't be feasible for a full game. I wanted to explore local LLM inference, but the models were too large to run on my hardware. Further, there were no Godot integrations available at the time and I didn't have the confidence to build them then; I don't even think Llama existed! So, the project had to wait.</p>
 
-<p>The process of developing GDLlama went, admittedly, smoother than I expected despite my lack of initial planning. I had no experience with GDExtensions, only university experience with C++, and I was nervous to look at one codebase someone else had written. Let alone three of them! After a bit of fumbling around, resolving linting errors one at a time, then build errors, then Godot integration issues, until I was able to get a sort-of working version of the original project running with the latest <code>llama.cpp</code>. At that point, I realized a few things: one, not all of the access methods were working and I had no idea why; two, some of the features godot-llm implemented were no longer supported by <code>llama.cpp</code> or were implemented in a different way; and three, the code was a bit of a mess. Not knowing much about <code>llama.cpp</code> or Godot, I decided to start with the tertiary goal first: clean up the code. That was something I knew I could do.</p>
+<p>Then, on August 14th, Google released <a href="https://developers.googleblog.com/en/introducing-gemma-3-270m/">Gemma3-270m</a>, a tiny 270 million parameter model that ran well on most consumer hardware. There were other SLMs kicking around, but Gemma 3 270m was exciting because it fit three specific needs: 1) it was small, 2) it could follow instructions well, and 3) it provided dialogue at a level that was approaching GPT-3 quality. Game changing.  </p>
 
-<h2>Refactoring</h2>
+<p>However, I quickly found that existing solutions for Godot were out of date, difficult to use, or both. So, I wanted to take a crack at it. GDLlama lets developers add AI-powered features to their games. You could do something with dialogue generation, or radiant quest creation. Have your NPCs respond dynamically to player actions, or create a DM for a virtual gaming experience that would have been impossible just a few years ago. The nascent space is just so vast and exciting, and I am so happy to contribute to it.</p>
+
+<p>This was originally a fork of <a href="https://github.com/Adriankhl/godot-llm">godot-llm</a> by Adriankhl; I wanted to update his work to the latest version of <code>llama.cpp</code> so that I could use the new <a href="https://huggingface.co/unsloth/gemma-3-270m-it-GGUF/tree/main">Gemma 3 270m GGUF</a> in my projects, and I figured others might find it useful too. When I started working on the update, I found that there were quite a few issues with the original codebase that made it difficult to work with, so I ended up rewriting large portions of it. After a few months of development (I think I started in the end of July 2025), I tagged a stable 1.0.0 release.</p>
+
+<p>The process of developing GDLlama went, admittedly, smoother than I expected. I had no experience with GDExtensions, only university experience with C++, and I was nervous to look at one codebase someone else had written. Let alone three of them! After a bit of fumbling around, resolving linting errors one at a time, then build errors, then Godot integration issues, until I was able to get a sort-of working version of the original project running with the latest <code>llama.cpp</code>. At that point, I realized a few things: one, not all of the access methods were working and I had no idea why; two, some of the features godot-llm implemented were no longer supported by <code>llama.cpp</code> or were implemented in a different way; and three, the code was a bit of a mess. Not knowing much about <code>llama.cpp</code> or Godot, I decided to start with the tertiary goal first: clean up the code. That was something I knew I could do, and I knew it would lead to resolving the others as well.</p>
+
+<h2 id="the-project">The Project</h2>
+
+<h3 id="refactoring-initial-assessment">Refactoring + Initial Assessment</h3>
 
 <p>To start, I needed to figure out what GDLlama wanted to be. At that point, there were four key pieces of access:</p>
 
@@ -86,11 +113,21 @@
 <li><code>embedding_runner</code></li>
 </ul>
 
-<p>On top of this, I found that godot-llm was loading and unloading a model with every inference call, which was not ideal. So, I decided to focus on the <code>gdllama</code> portion and create a single, stable base which would function as the core access point for the extension: the <code>GDLlama</code> node. This single node would replace the previous <code>gdllama</code>, <code>gdllava</code>, and <code>gdembeddings</code> nodes, as well as the runners. This would simplify the codebase significantly and make it easier to maintain, as well as simplify the user experience. There was simply one node to learn, one node to use. Need inference? Load a GDLlama node, load a model, and call an inference method. Need embeddings? Same process. Vision models? Ehh, not implemented, but eventually a GDLlama node!</p>
+<p><img src="/images/blog/gdllama-old.webp" alt="godot-llm Architecture Diagram" /></p>
 
-<p>I knew the <code>llama_runner</code> was a well-separated piece of code that handled the core inference logic. I just needed it to, y'know, <em>work</em>. And embeddings, too! Embeddings had to be added in before I could have a solid 1.0 release, since they enabled tool calling, token manipulation, semantic search, and other really powerful features. I also realized that both <code>llama_runner</code> and <code>gdllama</code> were doing too much between the two of them. <code>gdllama</code> contained access methods, model management, llama/godot communication, and <code>llama_runner</code> had its fingers in generation, state management, and even parts of the model lifecycle. It was a tangled mess that made debugging a nightmare.</p>
+<p>These components were quite leaky about their responsibilities. <code>gdllama</code>, <code>gdllava</code>, and <code>gdembeddings</code> all interfaced with <code>llama.cpp</code> directly, handled model loading and unloading, and managed inference calls to their corresponding runners. The runners themselves were monolithic with quite a lot of duplicated code between the three. It felt like a piece that could benefit from some consolidation.</p>
 
-<p>So, I figured I wanted four main pieces, each with a  single responsibility, which conveniently fit into a nice architecture:</p>
+<p>On top of this, I found that <code>godot-llm</code> was loading and unloading a model with every inference call, which was not ideal.</p>
+
+<p>I decided to focus on where responsibilities lay and how to simplify the codebase, which I eventually did in a PR titled <a href="https://github.com/xarillian/GDLlama/pull/20">"Simplify Generation"</a>. This change built the foundation for user access, and represented a significant refactor of the core feature: inference. It also represented a shift in how I wanted GDLlama to be used. No longer would there be four seperate nodes for each type of use case; instead, we would have a single node that can intelligently handle all model types. This would be a design that trusted the user to know what they were doing.</p>
+
+<p>Need inference? Load a GDLlama node, load a model, and call an inference method. Need embeddings? Same process. Vision models? Ehh, not implemented, but eventually... a GDLlama node!</p>
+
+<h3 id="architecture">Architecture</h3>
+
+<p>I knew that the <code>llama_runner</code> was a well-separated piece of code. It handled the core inference logic; awesome. I just needed it to, y'know, <em>work</em>.</p>
+
+<p>I also realized both <code>llama_runner</code> and <code>gdllama</code> were doing too much between the two of them. <code>gdllama</code> contained access methods, model management, llama/godot communication, and <code>llama_runner</code> had its fingers in generation, state management, and even parts of the model lifecycle. It was a tangled mess that made debugging a nightmare. So, I figured I wanted four main pieces, each with a  single responsibility, which conveniently fit into a nice architecture:</p>
 
 <ul>
 <li><code>gdllama.cpp</code>: Lives in Godot-land. Responsible for exposing access methods to Godot and handling Godot-specific logic and types.</li>
@@ -99,45 +136,81 @@
 <li><code>llama_runner.cpp</code>: The execution engine. Handles the low-level prediction and embedding generation loops, including tokenization, sampling, and decoding.</li>
 </ul>
 
-<p>Once I knew this structure, I set about creating <em>a plan</em>. That was pretty crazy, but it really helped me stay on track. In GitHub, I created a milestone for the 1.0 release and stocked it full of issues that I wanted to tackle. There was no real timeline, no real distinction between issue sizes, just stuff I felt would be fine to tackle all at once and get me to something I could call done. I started with logging, since that was a pain point for me and I didn't know how to debug in C++ at that time. Everything got logged. It was crazy back then. So much logging... but it worked and it helped me find issues very quickly. Some amount of that logging still lives as debug logs, which can be enabled by compiling a debug build!</p>
+<p><img src="/images/blog/gdllama-new.webp" alt="GDLlama 1.0 Architecture Diagram" /></p>
 
-<p>From there, I was systematic. I tackled model loading and unloading, and built the structure I wanted for the project in a nebulously named and large change, "Simplify Generation". I hit documentation, build steps, embeddings, removing SQL, and so on. Each issue felt like a small victory. Some issues felt huge! When I finally got internal documentation working, I was ecstatic. That alone was days spent Googling, trial and error, reading CMake docs, and finally figuring out how to get internal docs working (I had to increment the Godot version, something I really wanted to avoid... but c'est la vie). When I finished, I ran around the house and told my partner all about it. That was a good day.</p>
+<p>Once I had this structure, I set about creating a structured plan. In GitHub, I created a milestone for the 1.0 release and stocked it full of issues that I wanted to tackle: the aforementioned simplification, bugs with inference, documentation, and so on. There was no real time line, and no real distinction between issues sizes or categories. Just vibes. I started with logging.</p>
 
-<h3>The Runner</h3>
+<p>Logging was a pain point for me and I didn't know how to debug in C++ at that time. Everything got logged. It was crazy back then. So much logging... but it worked and it helped me find issues very quickly. Some amount of that logging still lives as debug logs, which can be enabled by compiling a debug build! This, I'm sure, will be a huge asset to both myself and future contributors, as well as developers using GDLlama.</p>
 
-<p>The heart of the refactor had to revolve around the <code>llama_runner</code>. It did everything and it needed to be re-written completely from scratch. The original runner was a single 1000+ line function that handled prompt evaluation, context shifting, different custom modes, and session management all in one loop. Debugging meant scrolling through endless conditionals trying to figure out which state the generator was in. It felt easy to break and hard to verify. It was also using deprecated or remove APIs from <code>llama.cpp</code>, which meant the initial pass had to be an update.</p>
+<h3 id="the-runner">The Runner</h3>
 
-<p>The new runner separates the prompt evaluation phase from the generation phase cleanly. During evaluation, we batch process tokens from the prompt using llama<em>batch</em>get<em>one, respecting the n</em>batch parameter for optimal throughput. Once we're past the prompt, the generation loop becomes straightforward: sample, accept, decode, repeat. The key point is that the new structure is way easier to read, maintain, and debug. Each phase is clear, and the state transitions are explicit.</p>
+<p>The heart of the refactor had to revolve around the <code>llama_runner</code>. It did everything and it needed to be re-written completely from scratch. The original runner was a single 1000 line function that handled prompt evaluation, context shifting, different custom modes, and session management all in one loop. Debugging meant scrolling through endless conditionals trying to figure out which state the generator was in. It felt easy to break and hard to verify, especially with while going through <code>llama.cpp</code> updates that changed how generation worked.</p>
 
-<p>Embedding support was important for me to implement in the initial 1.0 version. It was implemented as a separate function in the <code>llama_runner</code>. While developing it, I stumbled upon pooling strategies and realized the project needed to support multiple. The runner detects whether a model uses last-token pooling or built-in pooling (mean, CLS, etc.) and handles each appropriately. This was critical for enabling semantic search and tool-calling features for various models; for testing, I used the Gemma series both for embedding and inference. </p>
+<p>I started by writing out, and chatting with Anthropic's Claude, about how I wanted the new runner to work. I wanted clear phases: evaluate, process, generate, done. Each phase would have a clear responsibility and state. I wanted to avoid mixing concerns, and I wanted to make it easy to read and maintain. It took too much trial and error, a learning process, and a lot of iterations but eventually it got there.</p>
 
-<p>It's not perfect, but it's solid, and goddamn is it maintainable.</p>
+<p>The new runner separates the prompt evaluation phase from the generation phase cleanly. During evaluation, we batch process tokens from the prompt using <code>llama_batch_get_one</code>, respecting the <code>n_batch</code> parameter for optimal throughput. Once we're past the prompt, the generation loop becomes straightforward: sample, accept, decode, repeat. The key point is that the new structure is way easier to read, maintain, and debug. Each phase is clear, and the state transitions are explicit.</p>
 
-<p>...And, actually, while I write this I think I found a bug in the current implementation. Oops. Well, a 1.0.1 will fix that!</p>
+<h3 id="embeddings">Embeddings</h3>
 
-<h2>Testing, Docs, Distribution</h2>
+<p>Embedding support was important for me to implement in the initial 1.0 version. For anyone who doesn't know what embeddings are, they are vector representations of text that capture semantic meaning. More simply, consider a color hex code: <code>#306AC0</code>. This code represents a specific shade of blue, which we represent three dimensionally.</p>
 
-<p>I also set up a proper test suite that runs via <code>gtest</code> in debug builds. Nothing fancy, but it gives me confidence when making changes. Future me I'm sure will appreciate it! On top of this, I set up a continuous integration via GitHub Actions to pull down and compile against the latest version of <code>llama.cpp</code> weekly, ensuring that I at least know when breaking changes happen upstream. This suite ended up giving me some grief after incrementing the Godot version. It turned out, Godot's cmake setup vehemently dislikes exception handling, which is something I was doing quite a bit of in the codebase; nothing that touched Godot, but still. I couldn't figure out how to disable build errors for exception handling in a way that wouldn't override the Godot build settings, so I ended up removing exceptions entirely from the project. Errors would instead bubble up from wherever they occurred, and the project would either log or handle them based on the existence of a log message. That was a pain, and done perhaps in a rush, but it is what it is.</p>
+<ul>
+<li>Red: 30,</li>
+<li>Green: 6A,</li>
+<li>Blue: C0</li>
+</ul>
 
-<p>Perhaps controversially, I decided to remove the SQLite database component. While it was a neat thing to have, it introduced a <em>lot</em> of complexity to what was otherwise a fairly straightforward extension. It felt like an extension on top of the extension, and I wanted development and maintenance time focused on the cool and fun functionality. While working on the project, <a href="https://github.com/xarillian/GDLlama/blob/master/docs/DESIGN.md">I was thinking of what principles I wanted to follow</a>. One of these was User Agency, styled as "the user should be able to f*ck up." By removing the in-built database, users are free to implement state management solutions in whatever way they see fit without dragging a GDLlama db along; those could be in-memory arrays, JSON, external databases — whatever. The point was, GDLlama didn't need to care. It should work with the user rather than prescribe data management solutions.</p>
+<p>To get a similar color, we can adjust these values slightly. The closer the values are, the more similar the colors will appear.</p>
 
-<p>Am I entirely happy about that state? Sure, why not. Logging is still tightly coupled to Godot, so <code>gdllama</code> isn't entirely quarantining Godot code. The current structure makes future integrations a touch difficult, though I think I can thread them from <code>gdllama.cpp</code> to an appropriate controller. Much of the code could be way more modular, but I'll get to that as it becomes more important with future updates. Ultimately, it gets the job done and it's a solid foundation to build on. Works for me!</p>
+<p><img src="/images/blog/hex-encoder-explainer.webp" alt="Color Encoding Diagram" /></p>
 
-<p>I spent, what some might call, an inordinate amount of time on documentation. I really hate projects that don't help the user get started, and I really love technical writing — what a delicious combination of traits! So, I wrote a lot of documentation. There are build instructions (important, must have), an API reference (important, must have), a legal guide (sure?), a document on different architecture (okay), a design principles document, and ... I think that's it? I also wrote a few examples to help users get started quickly. I hope it helps! <a href="https://github.com/xarillian/GDLlama/tree/master/docs">Docs, find 'em here.</a></p>
+<p>Similarly, embeddings represent text in a high-dimensional space where semantically similar texts are closer together. </p>
+
+<p><img src="/images/blog/embeddings-explainer.webp" alt="Embedding Space Diagram" /></p>
+
+<p>Embeddings were implemented, as planned, as part of the GDLlama node. There is no major difference in parameters between inference and embedding calls, so it made sense to consolidate them into a single node. There are separate access methods for generating embeddings versus inference, but under the hood they share the same model loading and management logic. That felt <em>neat</em>!</p>
+
+<p>While developing embedding support, I stumbled upon pooling strategies after a few fruitless evenings of trying to get my embedding tests working. My test model would always return the same semantic distance: 1.0. After some digging, more logging, and a few chats with Claude, I realized the project needed to support multiple pooling strategies. </p>
+
+<p>Different models use different strategies to convert token-level embeddings into a single vector representation for the entire input. Some models use "last-token pooling", where the embedding of the last token is used as the representation. Others use built-in pooling methods like mean pooling or CLS token pooling. The runner detects whether a model uses last-token pooling or built-in pooling (mean, CLS, etc.) and handles each appropriately. This was critical for enabling semantic search and tool-calling features for various models; for testing, I used the Gemma series both for embedding and inference.</p>
+
+<h3 id="database-concerns">Database Concerns</h3>
+
+<p>Perhaps controversially, I decided to remove the SQLite database component. While it was a neat thing to have, it introduced a <em>lot</em> of complexity in what was otherwise a fairly straightforward extension. It felt like an extension on top of the extension, and I wanted development and maintenance time focused on the cool and fun functionality. While working on the project, <a href="https://github.com/xarillian/GDLlama/blob/master/docs/DESIGN.md">I was thinking of what principles I wanted to follow</a>. One of these was User Agency, styled as "the user should be able to f*ck up." By removing the in-built database, users are free to implement state management solutions in whatever way they see fit without dragging a GDLlama db along; those could be in-memory arrays, JSON, external databases — whatever. The point was, GDLlama didn't need to care. It should work with the user rather than prescribe data management solutions.</p>
+
+<h3 id="testing-and-docs">Testing and Docs</h3>
+
+<p>Testing was done via <code>gtest</code> in debug builds. Nothing fancy, but it gives me confidence when making changes. I set up a continuous integration via GitHub Actions to run the tests whenever <code>master</code> is targeted. In addition, there's a job to pull down and compile against the latest version of <code>llama.cpp</code> weekly, ensuring that I at least know when breaking changes happen upstream.</p>
+
+<p>I spent, what some might call, an inordinate amount of time on documentation. I really hate projects that don't help the user get started, and I really love technical writing — what a delicious combination of traits! So, I wrote a lot of documentation. There are build instructions (important, must have), an API reference (important, must have), a legal guide (sure?), a document on different architecture (okay), a design principles document, and ... I think that's it? I also wrote a few examples to help users get started quickly. I hope it helps! Docs: https://github.com/xarillian/GDLlama/tree/master/docs</p>
+
+<h2 id="distribution">Distribution</h2>
 
 <p>Out of everything I did, I can't help but laugh about how long I've thought about distribution. I know I wanted to give back to the community, and the project is MIT licensed (and needs to be, given I adopted it from godot-llm). Seriously, after all the hard, technical work in the <code>llama</code> mines, it ends up being distribution that feels the hardest. Talk about a lesson learned! I think what I want is a two-tier system: free access to the source code and build instructions via GitHub, and a paid prebuilt extension via the Godot Marketplace for convenience and a promise of future maintenance. That feels like a fair balance between open source and something I can sustain working on. We'll see how that goes!</p>
 
 <p>The strangest thing about this whole process was the end. I found that when I went to hit that final merge that I didn't want to do it. My mouse hovered over that button and retreated so that I could put one more bit of polish on the code, or so that I could go for a run, or anything but hit that button. It was a strange feeling. I didn't want to be done. I didn't want to put it out there and say, "Here it is, it's ready. Come use it!" I think part of it was that I was nervous about putting my work out there for others to use. What if it had bugs? What if it wasn't as good as I thought it was? Ultimately, I don't think it matters. I did my best. It's out there. Anything that's wrong can be fixed. A good start!</p>
 
-<h2>Slop?</h2>
+<h2 id="slop">Slop?</h2>
 
-<p>I mean, yeah probably. I worry a bit about slop and sloppy content. Well, really, I think that's a taste issue. I built this because I wanted to make games that weren't possible before. My hope is that developers use it to enhance their games in novel and exciting ways, rather than as a crutch to avoid writing engaging content. That's the use case I'm optimizing for: creative people who care about their craft. If you're using GDLlama, make something you'd genuinely want to play. Think about the content you already love and iterate. Be virtuous and make something you love.</p>
+<p>I mean, yeah probably. I worry a bit about slop and sloppy content. Mostly, I think that's a taste issue. I built this because I wanted to make games that weren't possible before. My hope is that developers use it to enhance their games in novel and exciting ways, rather than as a crutch to avoid writing engaging content. That's the use case I'm optimizing for: creative people who care about their craft. If you're using GDLlama, make something you'd genuinely want to play. Think about the content you already love and iterate. Be virtuous and make something you love.</p>
 
-<h2>Future Plans</h2>
+<h2 id="future-plans">Future Plans</h2>
 
-<p>Ah, but work is never done. There are a few features I want to add in the future. A request has already come in for adding support for batch processing that I'd like to get to before anything else. LoRA support is another feature that I'd love to add sooner rather than later, since it would open development possibilities that I'd really like to explore myself. I need to hit other integrations (not just Llama ... and that likely means a rename!), allow better context manipulation, and so on, and so on. my continually growing list of features to add is available on the <a href="https://github.com/xarillian/GDLlama/issues">GitHub issues page</a>.</p>
+<p>Ah, but work is never done. There are a few features I want to add in the future. A request has already come in for adding support for batch processing that I'd like to get to before anything else. LoRA support is another feature that I'd love to add sooner rather than later, since it would open development possibilities that I'd really like to explore myself. I need to hit other integrations (not just Llama ... and that likely means a rename!), allow better context manipulation, and so on, and so on. My continually growing list of features to add is available on the <a href="https://github.com/xarillian/GDLlama/issues">GitHub issues page</a>.</p>
 
-<p>And then, when all is said and done, I want to make something with it. My own game ideas have been on hold while I worked on GDLlama, and I'm eager to get back to them; I'm proud that my work on GDLlama can help me make those ideas a reality. I'm happy to get those ideas out of my notes app! And of course, I hope that others will make great games with GDLlama too.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>It wasn't a perfect project; what is? There are still parts of the code that could be way more modular. The runner could be further split into an "inference" and an "embedding" runner, with shared functions between them. Then, there're three leaky abstractions that I'd like to address:</p>
+
+<ul>
+<li><code>gdllama</code> talks to <code>llama.cpp</code> when setting or getting parameters. This is somewhat okay, and is a simplification. Abstracting this further may add complexity without benefit.</li>
+<li><code>llama_controller</code> directly manipulates tokens when managing chat formatting. This should be entirely the domain of the runner!</li>
+<li>logging is tightly coupled to Godot. This makes sense, and I'm not sure how to abstract it further without pointlessly adding complexity.</li>
+</ul>
+
+<p>While writing this document, I also found a bug in the current implementation. Exciting! I don't believe infinite generation, so specifying an <code>n_predict</code> of -1 works as intended. Oops! A 1.0.1 will fix that!</p>
+
+<p>But really, I'm incredibly happy with how I wrote this thing. It feels solid, maintainable, and extensible. Not to mention easy to use! I think Godot developers who want to work in this space will find it approachable and fun. And then, when all is said and done, I want to make something. My own game ideas have been on hold while I worked on GDLlama, and I'm eager to get back to them; I'm proud that my work on GDLlama can help me make those ideas a reality. I'm happy to get those ideas out of my notes app! And of course, I hope that others will make great games with GDLlama too.</p>
 
     </div>
   </span>
