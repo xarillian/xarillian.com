@@ -1,0 +1,45 @@
+/* ============================================
+ * LAYOUT
+ * ============================================ 
+ */
+
+.container {
+  margin: 0 auto;
+  max-width: var(--content-width);
+}
+
+@media (max-width: 799px) {
+  .container {
+    max-width: var(--content-width-mobile);
+  }
+}
+
+header {
+  display: flex;
+  position: relative;
+  max-width: calc(var(--content-width) + 100px);
+  min-height: 5em;
+  margin: var(--space-lg) auto 0 auto;
+  padding: var(--space-sm) var(--space-md) var(--space-md) var(--space-md);
+  background-color: var(--transparency-layer);
+  border: 1px solid var(--accent-color);
+  border-radius: var(--border-radius);
+  font-family: 'Silkscreen', cursive;
+}
+
+@media (max-width: 799px) {
+  header {
+    max-width: var(--content-width-mobile);
+    flex-direction: column;
+    align-items: flex-start;
+    margin: var(--space-md) var(--space-sm) 0 var(--space-sm);
+  }
+}
+
+@media (max-width: 799px) {
+  .navigation {
+    display: flex;
+    gap: var(--space-md);
+  }
+}
+

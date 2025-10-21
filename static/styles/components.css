@@ -1,0 +1,52 @@
+/* ============================================
+ * Component Styles
+ * ============================================ 
+ */
+
+/* Blog Styles */
+.table-of-contents {
+  background: var(--transparency-layer);
+  padding: var(--space-md);
+  margin: 1rem 0;
+  border: 1px solid var(--accent-color);
+  width: 300px;
+  font-size: 0.9em;
+}
+
+.table-of-contents::before {
+  content: "Contents";
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.table-of-contents ul {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.table-of-contents > ul {
+  padding-left: 0;
+}
+
+/* Tags */
+.tag-cloud {
+  background-color: var(--transparency-layer);
+  display: flex;
+  flex-wrap: wrap;
+  margin: var(--space-lg) auto;
+  padding: var(--space-xl);
+  max-width: var(--content-width);
+  border-radius: var(--border-radius);
+  gap: var(--space-md);
+  align-items: baseline;
+}
+
+.tag-cloud a {
+  border-bottom: none;
+  display: flex;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+}
