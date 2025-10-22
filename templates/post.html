@@ -12,10 +12,10 @@
 
 {% block content %}
 {% if post %}
-  <span class="blog-post">
-    <h1 class="blog-post">{{ post.title }}</h1>
+  <span>
+    <h1>{{ post.title }}</h1>
     {% if post.date %}
-      {% if post.date.year > 2000 %}
+      {% if post.date.year > 2000 %} <!-- ignore the about page -->
         <p class="blog-date">{{ post.date.strftime('%B %d, %Y') }}</p>
       {% endif %}
     {% endif %}
@@ -25,7 +25,7 @@
       </div>
     {% endif %}
 
-    <div class="blog-post">
+    <div>
       {{ post.content|safe }}
     </div>
   </span>

@@ -2,7 +2,7 @@
 title: Bingo 2025
 summary: My goals for the year 2025, gamified.
 date: 2025-01-05
-tags: personal-development
+tags: personal
 ---
 
 The past few years, I've written all of my goals down on a whiteboard in a large checklist. Sometimes I get through them all; a lot of the time I get through maybe half. In 2024, I was very ambitious. Too ambitious. I wanted to compose a song without knowing how to play the piano, dive into the hardest parts of embedded software without doing anything introductory, and hit a large savings goal. Some good came of that -- I relearned the piano, and if it weren't for a series of emergencies over the year, I would have hit the savings goal. But with embedded software, I hit a rut because what I wanted to do was so far out there that I couldn't see the starting point (that's bad!).

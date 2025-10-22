@@ -2,7 +2,7 @@
 title: GDLlama 1.0 Postmortem
 summary: Reflections on the development of GDLlama 1.0.0
 date: 2025-10-19
-tags: gamedev
+tags: gamedev,ai
 toc: true
 ---
 
