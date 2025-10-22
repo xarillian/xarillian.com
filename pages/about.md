@@ -59,8 +59,8 @@ I live in Saskatoon with my wife (my best friend) and our three cats. We've been
 If you want to reach out to me, feel free to do so through any of these channels:
 - Find my code on <a href="https://github.com/xarillian/">GitHub</a>
 - Email me at <a href="mailto:austinwheinrich@gmail.com">austinwheinrich@gmail.com</a>
-- Connect with me on <a href="https://x.com/xari1lian/">twitter</a> or <a href="https://bsky.app/profile/xarillian.bsky.social">Bluesky</a>
-- or connect with me on <a href="https://www.linkedin.com/in/austin-heinrich/">LinkedIn</a>
+- Follow me on <a href="https://x.com/xari1lian/">twitter</a> or <a href="https://bsky.app/profile/xarillian.bsky.social">Bluesky</a>
+- or, connect with me on <a href="https://www.linkedin.com/in/austin-heinrich/">LinkedIn</a>
 
 ## About this Website
 This website is built with HTML (and CSS). A little python static site generator I wrote puts it all together, and then it's hosted on Github Pages. You can find the source code for it on my <a href="https://github.com/xarillian/xarillian.com/">GitHub</a>.

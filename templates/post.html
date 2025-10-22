@@ -2,7 +2,6 @@
 
 {% block title %}xarillian - {{ post.title }}{% endblock %}
 
-
 {% block extra_head %}
   <meta name="description" content="{{ post.summary if post.summary else post.content|striptags|truncate(160, true, '...') }}">
   <meta property="og:type" content="article">
@@ -13,19 +12,11 @@
 
 {% block content %}
 {% if post %}
-  <div>
-    {% if post.tagline %}
-      <span class="this-part-is-me-being-a-little-freak">
-        {{ post.tagline }}
-      </span>
-    {% endif %}
-  </div>
-
   <span class="blog-post">
     <h1 class="blog-post">{{ post.title }}</h1>
     {% if post.date %}
       {% if post.date.year > 2000 %}
-        <p class="blog-post-date">{{ post.date.strftime('%B %d, %Y') }}</p>
+        <p class="blog-date">{{ post.date.strftime('%B %d, %Y') }}</p>
       {% endif %}
     {% endif %}
     {% if post.toc_html %}

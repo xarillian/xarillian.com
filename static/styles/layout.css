@@ -20,7 +20,7 @@ header {
   justify-content: space-between;
   max-width: calc(var(--content-width) + 100px);
   min-height: 5em;
-  margin: var(--space-lg) auto 0 auto;
+  margin: var(--space-lg) auto var(--space-lg) auto;
   padding: 0 var(--space-md);
   background-color: var(--transparency-layer);
   border: 1px solid var(--accent-color);
@@ -33,7 +33,7 @@ header {
     max-width: var(--content-width-mobile);
     flex-direction: column;
     align-items: flex-start;
-    margin: var(--space-md) var(--space-sm) 0 var(--space-sm);
+    margin: var(--space-md) var(--space-sm) var(--space-md) var(--space-sm);
     padding: var(--space-sm) var(--space-md) var(--space-md) var(--space-md);
   }
 }

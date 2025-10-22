@@ -34,7 +34,9 @@ details[open] > summary {
 }
 
 hr {
-  color: var(--accent-color);
+  border: none;
+  height: 3px;
+  background-color: var(--text-accent-color);
 }
 
 img {
@@ -87,6 +89,13 @@ b {
   color: var(--bold-color);
 }
 
+code {
+  color: var(--text-accent-color);
+  font-family: monospace;
+  font-size: 1.1em;
+  background-color: var(--transparency-layer);
+}
+
 p {
   color: var(--text-color);
   font-size: 1.1em;
@@ -98,10 +107,6 @@ h1, h2, h3 {
   letter-spacing: 0.075em;
   margin: 0 auto;
   padding: 0;
-}
-
-h1 {
-  margin-top: var(--space-lg);
 }
 
 h1.xarillian {

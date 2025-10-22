@@ -3,22 +3,10 @@
 {% block title %}xarillian - Posts tagged with {{ tag }}{% endblock %}
 
 {% block content %}
-<div class="tag-posts">
-  <h1>Posts tagged "{{ tag }}"</h1>
+<div>
+  <h1 class="tagged-post-title">Posts tagged "{{ tag }}"</h1>
   {% if posts %}
-    <div class="entry-wrapper">
-      {% for post in posts %}
-        <div class="entry-overview">
-          <div class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</div>
-          <div class="blog-detail">
-            <h1><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h1>
-            {% if post.summary %}
-              <div class="blog-summary">{{ post.summary }}</div>
-            {% endif %}
-          </div>
-        </div>
-      {% endfor %}
-    </div>
+    {% include "_blog.html" %}
   {% else %}
     <p>No posts found with this tag (embarrassing).</p>
   {% endif %}

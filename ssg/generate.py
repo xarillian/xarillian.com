@@ -82,8 +82,13 @@ def generate_tags(blog: Blog):
     tag_dir.mkdir(parents=True, exist_ok=True)
     tag_file = tag_dir / "index.html"
     posts = blog.get_posts_by_tag(tag)
-    tag_file.write_text(render_template("tagged_posts.html", tag=tag, posts=posts), encoding="utf-8")
-
+    tag_file.write_text(render_template(
+      "tagged_posts.html", 
+      tag=tag, 
+      posts=posts,
+      total_pages=0,
+      current_page=1
+    ), encoding="utf-8")
 
 def generate_site():
   print("Starting site generation...")
