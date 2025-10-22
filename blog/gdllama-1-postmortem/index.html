@@ -21,41 +21,29 @@
 </head>
 <body>
   <header>
-  <div class="header-content">
-    <div class="header-title-container no-link-formatting">
-      <h1 data-text="xarillian">
-        <a href="/" aria-label="Xarillian - Home Page" title="/zæˈrɪliən/">
-          xarillian
-        </a>
-      </h1>
-      <span class="tagline skip-mobile" id="quote">it's not the user's fault</span>
-    <script>
-      const quotes = ["it\u0027s not the user\u0027s fault", "it\u0027s not the mountains we conquer, but ourselves", "a ship in a harbor is safe, but that is not what ships are built for", "everything excellent is as difficult as it is rare", "you can just do things", "reach heaven by violence!", "I like this player. It played well. It did not give up.", "...the player believed the universe had spoken to it through the zeroes and ones"];
-      document.addEventListener('DOMContentLoaded', () => {
-        const el = document.getElementById('quote');
-        el.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-      });
-    </script>
-    </div>
-    <nav class="main-nav">
+  <div>
+    <h1 class="xarillian" data-text="xarillian">
+      <a href="/" aria-label="Xarillian - Home Page" title="/zæˈrɪliən/">
+        xarillian
+      </a>
+    </h1>
+  </div>
+  <div>
+    <nav class="navigation">
       <a href="/blog" class="styled-link">Blog</a>
       <a href="/tags" class="styled-link">Tags</a>
       <a href="/about" class="styled-link">About</a>
     </nav>
   </div>
 </header>
-  <main>
+  <main class="container">
     
 
-  <div>
+  <span>
+    <h1>GDLlama 1.0 Postmortem</h1>
     
-  </div>
-
-  <span class="blog-post">
-    <h1 class="blog-post">GDLlama 1.0 Postmortem</h1>
-    
-      
-        <p class="blog-post-date">October 19, 2025</p>
+       <!-- ignore the about page -->
+        <p class="blog-date">October 19, 2025</p>
       
     
     
@@ -79,7 +67,7 @@
       </div>
     
 
-    <div class="blog-post">
+    <div>
       <p><a href="https://github.com/xarillian/GDLlama">GDLlama</a> is a GDExtension that allows a Godot developer to use the powerful <code>llama.cpp</code> library to run GGUF models in Godot games.</p>
 
 <p>This is a continuation of <a href="https://github.com/xarillian/idle-game-prototype">a prototype project</a> I started a year or two ago concerning agents in video games. I was getting the emergent gameplay I wanted, but I ran into a few issues. Primarily, it was costly. I was directly calling OpenAI's APIs for every agent action, which quickly added up and wouldn't be feasible for a full game. I wanted to explore local LLM inference, but the models were too large to run on my hardware. Further, there were no Godot integrations available at the time and I didn't have the confidence to build them then; I don't even think Llama existed! So, the project had to wait.</p>
@@ -182,7 +170,7 @@
 
 <p>Testing was done via <code>gtest</code> in debug builds. Nothing fancy, but it gives me confidence when making changes. I set up a continuous integration via GitHub Actions to run the tests whenever <code>master</code> is targeted. In addition, there's a job to pull down and compile against the latest version of <code>llama.cpp</code> weekly, ensuring that I at least know when breaking changes happen upstream.</p>
 
-<p>I spent, what some might call, an inordinate amount of time on documentation. I really hate projects that don't help the user get started, and I really love technical writing — what a delicious combination of traits! So, I wrote a lot of documentation. There are build instructions (important, must have), an API reference (important, must have), a legal guide (sure?), a document on different architecture (okay), a design principles document, and ... I think that's it? I also wrote a few examples to help users get started quickly. I hope it helps! Docs: https://github.com/xarillian/GDLlama/tree/master/docs</p>
+<p>I spent, what some might call, an inordinate amount of time on documentation. I really hate projects that don't help the user get started, and I really love technical writing — what a delicious combination of traits! So, I wrote a lot of documentation. There are build instructions (important, must have), an API reference (important, must have), a legal guide (sure?), a document on different architecture (okay), a design principles document, and ... I think that's it? I also wrote a few examples to help users get started quickly. I hope it helps! <a href="https://github.com/xarillian/GDLlama/tree/master/docs">Read the Docs</a>. </p>
 
 <h2 id="distribution">Distribution</h2>
 
@@ -220,6 +208,10 @@
       
         
         <a href="/tags/gamedev" class="post-tag">gamedev</a>
+        
+      
+        
+          and <a href="/tags/ai" class="post-tag">ai</a>
         
       
     </p>
