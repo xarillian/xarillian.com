@@ -36,7 +36,6 @@
 }
 
 /* Blog Face */
-
 .blog-detail-container {
   display: flex;
   align-items: center;
@@ -63,8 +62,15 @@
 
 .blog-date {
   margin: 0;
+  width: 6em;
   color: var(--text-accent-color);
   font-family: "Silkscreen";
+}
+
+@media (max-width: 799px) {
+  .blog-date {
+    width: 12em;
+  }
 }
 
 .pagination {
@@ -78,6 +84,14 @@
   .pagination {
     font-size: 1.25em;
   }
+}
+
+/* Blog Post */
+.blogpost-date {
+  flex-shrink: 0;
+  margin: 0;
+  color: var(--text-accent-color);
+  font-family: "Silkscreen";
 }
 
 /* Tags */
