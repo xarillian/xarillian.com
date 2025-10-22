@@ -67,7 +67,7 @@ def generate_tags(blog: Blog):
   print(f"Found {len(tags)} tags to render.")
 
   tag_sizes = {
-    tag: round(1 + 2 * (count - min(tags.values())) / max(1, max(tags.values()) - min(tags.values())), 1)
+    tag: round(1 + 1 * (count - min(tags.values())) / max(1, max(tags.values()) - min(tags.values())), 1)
     for tag, count in tags.items()
   }
 
@@ -75,15 +75,20 @@ def generate_tags(blog: Blog):
   tags_dir.mkdir(parents=True, exist_ok=True)
 
   with (tags_dir / "index.html").open('w', encoding='utf-8') as file:
-    file.write(render_template("tags.html", tag_sizes=tag_sizes))
+    file.write(render_template("tags.html", tag_sizes=tag_sizes, tag_counts=tags))
 
   for tag in tags:
     tag_dir = tags_dir / tag
     tag_dir.mkdir(parents=True, exist_ok=True)
     tag_file = tag_dir / "index.html"
     posts = blog.get_posts_by_tag(tag)
-    tag_file.write_text(render_template("tagged_posts.html", tag=tag, posts=posts), encoding="utf-8")
-
+    tag_file.write_text(render_template(
+      "tagged_posts.html", 
+      tag=tag, 
+      posts=posts,
+      total_pages=0,
+      current_page=1
+    ), encoding="utf-8")
 
 def generate_site():
   print("Starting site generation...")

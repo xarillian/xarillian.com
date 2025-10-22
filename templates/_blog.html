@@ -1,0 +1,30 @@
+<div>
+  {% for post in posts %}
+    <div class="blog-detail-container">
+      <p class="blog-date">{{ post.date.strftime('%b %d, %Y') }}</p>
+      <div>
+        <h1><a href="/blog/{{ post.slug }}">{{ post.title }}</a></h1>
+        {% if post.summary %}
+          <p class="blog-summary">{{ post.summary }}</p>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% if total_pages > 1 %}
+  <div class="pagination">
+    {% if current_page > 1 %}
+      <a href="/blog/page/{{ current_page - 1 }}/">« Previous</a>
+    {% else %}
+      <span class="disabled">« Previous</span>
+    {% endif %}
+    
+    — <strong>{{ current_page }}</strong> —
+
+    {% if current_page < total_pages %}
+      <a href="/blog/page/{{ current_page + 1 }}/">Next »</a>
+    {% else %}
+      <span class="disabled">Next »</span>
+    {% endif %}
+</div>
+{% endif %}

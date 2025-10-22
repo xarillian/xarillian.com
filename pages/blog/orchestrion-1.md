@@ -1,6 +1,6 @@
 ---
 title: Orchestrion: The Second Shift
-summary: A vignette of Cadaverine, where death is the beginning of your career.
+summary: A vignette of Cadaverine, where death is only the beginning of your career.
 date: 2025-04-19
 tags: worldbuilding,orchestrion,necrocracy
 toc: false

@@ -23,12 +23,13 @@ def collect_css_files():
   return sorted(files, key=sort_key)
 
 
-def extract_imports(path):
-  if not path.exists():
-    return []
+def extract_imports(files):
+  imports = []
+  for file in files:
+    content = file.read_text(encoding="utf-8")
+    imports.extend(line for line in content.splitlines() if "@import url(" in line)
 
-  with path.open(encoding="utf-8") as f:
-    return [line for line in f if "@import url(" in line]
+  return imports
 
 
 def extract_root_css(files):
@@ -53,12 +54,10 @@ def write_css_bundle(files, imports, root_css):
     bundle.write("/* Bundled CSS file - auto-generated */\n\n")
 
     if imports:
-      bundle.write("/* Google Fonts */\n")
       bundle.writelines(line.strip() + "\n" for line in imports)
       bundle.write("\n")
 
     if root_css:
-      bundle.write("/* CSS Variables */\n")
       bundle.write(root_css + "\n\n")
 
     for css_file in files:
@@ -71,7 +70,7 @@ def write_css_bundle(files, imports, root_css):
       content = css_file.read_text(encoding="utf-8")
       content = remove_root_block(content)
       lines = [line for line in content.splitlines() if "@import" not in line]
-      bundle.write("\n".join(lines) + "\n\n")
+      bundle.write("\n".join(lines) + "\n")
       print(f"Added {rel_path} to bundle.")
 
 
@@ -82,7 +81,7 @@ def bundle_css():
     css_files = collect_css_files()
     print(f"Found {len(css_files)} CSS files to bundle.")
 
-    imports = extract_imports(CSS_STYLES_FILE)
+    imports = extract_imports(css_files)
     root_css = extract_root_css(css_files)
 
     write_css_bundle(css_files, imports, root_css)

@@ -2,7 +2,7 @@
 title: Writing a Stellaris Mod
 summary: The process of getting my mod, Gender Diversity & Politics, to release. Game design in a "why would I touch that" space, handling sensitive topics in game design and my careful considerations thereto, and getting sidetracked with parsing.
 date: 2025-01-27
-tags: gamedev,architecture
+tags: gamedev,modding
 toc: true
 ---
 
