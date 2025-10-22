@@ -16,7 +16,7 @@
     <h1>{{ post.title }}</h1>
     {% if post.date %}
       {% if post.date.year > 2000 %} <!-- ignore the about page -->
-        <p class="blog-date">{{ post.date.strftime('%B %d, %Y') }}</p>
+        <p class="blogpost-date">{{ post.date.strftime('%B %d, %Y') }}</p>
       {% endif %}
     {% endif %}
     {% if post.toc_html %}
