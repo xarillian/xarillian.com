@@ -24,8 +24,7 @@ We'll start with the bingo line:
 
 This line is a combination of some good, quantitative goals (2 programming projects!) and some looser goals. I think this line became a bingo because luck was less of a factor in these qualitative goals compared to the other qualitative goals on the bingo sheet. I'll mainly review these bingo-winning goals. 
 
-## 2025 Bingo
-### 2 Great Programming Projects
+## 2 Great Programming Projects
 I didn't want to include projects from Andgo here. We do lots of interesting work, scaling up our system, building some new integrations, refactoring away from a monolith, but I wanted the focus to be on development outside of paid labor. I needed to feel some passion.
 
 The first of those projects is this website. Really, retooling this website. It used to be written in python/flask and HTMX, but I just found myself wondering -- why? Mostly, why am I paying all of this cash? That also gave me the opportunity to do some re-styling. The final result is a simple, static site built with a custom static site generator, some custom MD processing, and just a generally cleaner structure than before.
@@ -34,7 +33,7 @@ The other project is the `GDLlama` project.  <a href="/blog/gdllama-1-postmortem
 
 This project also allowed me to achieve the "Someone tells me I've inspired them (real)" goal. We do a biweekly demo or showcase at Andgo geared toward R&D, and so I did a showcase at one of these when I felt the project was in a "1.0" state. After the demo, a junior dev reached out to me. They chatted with me, told me they were interested in game development, and were excited that I had worked on something so interesting. Because of my showcase, they were inspired to use Godot, played around with it, and (hopefully!) enjoyed the engine. That was a very cool moment. I really hope they are doing some game dev!
 
-### Else
+## Other Line-Winning Items
 "Abs + Geta Sandals Summer" was achieved in two ways: 
 - I (spoilers) finished a triathlon early in the summer and had a lower body fat percentage than normal
 - My wife bought me Geta sandals for my birthday
@@ -48,7 +47,6 @@ As for the birthday party...
 <img src="/images/blog/friends.png" alt="my friends and I (left) celebrating my birthday at Prince Albert National Park" />
 
 ## Camping, Hiking, and Doing a Triathlon
-
 <img src="/images/blog/triathlon-1.png" alt="me, donning my goggles and wetsuit right before my swim" />
 
 Arf arf! Here's me right before getting in the water at my first triathlon. Wow, did this event destroy me. When I eventually got to signing up, I looked at the sprint triathlon, saw the swim distances and thought, "hm, I could do those easily." So, instead of reasonable and selecting the sprint triathlon, or the half-distance, I selected the full distance. Unfortunately for me, there were two more events after the swim; should've stuck with the half-distance! No matter.
