@@ -56,4 +56,3 @@ The training and discipline I had to accumulate to achieve this was incomparable
 My next update should include my goals for next year. If you are reading, and I don't know if anyone is, have a happy new year!
 
 <img src="/images/blog/winter-hike.png" alt="my wife and I on a chill hike New Years Eve, Banff National Park" />
-
