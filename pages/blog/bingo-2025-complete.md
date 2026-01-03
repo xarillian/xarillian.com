@@ -3,6 +3,7 @@ title: 2025 Successes
 summary: How well did I do achieving my goals in 2025?
 date: 2025-12-31
 tags: personal
+toc: true
 ---
 
 Last year, a New Years' resolution bingo trend was circulating the internet. My wife, some friends, and myself decided to participate, each creating a 5x5 bingo card that (of course) included a free space in the middle (mine was to learn something!). Now, it's time to see how I held up to my goals at the start of 2025.
@@ -14,6 +15,7 @@ Okay, last year:
 <img src="/images/blog/bingo-2025-complete.png" alt="my personal development 2025" class="bingo-2025-img" />
 
 We'll start with the bingo line:
+
 - Abs + Geta Sandals Summer
 - 2 Great Programming Projects
 - Someone tells me I've inspired them (real)
