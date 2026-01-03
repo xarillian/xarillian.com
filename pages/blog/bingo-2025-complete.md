@@ -11,7 +11,7 @@ When I first set out to make the card, I didn't want an entirely goal-oriented c
 
 Okay, last year:
 
-<img src="/images/blog/bingo-2025-complete.webp" alt="my personal development 2025" class="bingo-2025-img" />
+<img src="/images/blog/bingo-2025-complete.png" alt="my personal development 2025" class="bingo-2025-img" />
 
 We'll start with the bingo line:
 - Abs + Geta Sandals Summer
@@ -43,11 +43,11 @@ I did end up writing 200k words, which surprised me, but between some sparse blo
 
 As for the birthday party...
 
-<img src="/images/blog/friends.webp" alt="my friends and I (left) celebrating my birthday at Prince Albert National Park" />
+<img src="/images/blog/friends.png" alt="my friends and I (left) celebrating my birthday at Prince Albert National Park" />
 
 ## Camping, Hiking, and Doing a Triathlon
 
-<img src="/images/blog/triathlon-1.webp" alt="me, donning my goggles and wetsuit right before my swim" />
+<img src="/images/blog/triathlon-1.png" alt="me, donning my goggles and wetsuit right before my swim" />
 
 Arf arf! Here's me right before getting in the water at my first triathlon. Wow, did this event destroy me. When I eventually got to signing up, I looked at the sprint triathlon, saw the swim distances and thought, "hm, I could do those easily." So, instead of reasonable and selecting the sprint triathlon, or the half-distance, I selected the full distance. Unfortunately for me, there were two more events after the swim; should've stuck with the half-distance! No matter.
 
@@ -55,5 +55,5 @@ The training and discipline I had to accumulate to achieve this was incomparable
 
 My next update should include my goals for next year. If you are reading, and I don't know if anyone is, have a happy new year!
 
-<img src="/images/blog/winter-hike.webp" alt="my wife and I on a chill hike New Years Eve, Banff National Park" />
+<img src="/images/blog/winter-hike.png" alt="my wife and I on a chill hike New Years Eve, Banff National Park" />
 
