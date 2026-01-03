@@ -1,0 +1,4 @@
+# xarillian
+xarillian.com is the personal website of Austin Wayne, a software developer from the Canadian prairies.
+He's built some cool projects with LLMs:
+- [GDLlama](https://github.com/xarillian/GDLlama)
